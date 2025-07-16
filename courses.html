@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Official website of the Department of Mathematics, Ahmadu Bello University, Zaria. Explore courses, past questions, lecturer profiles, and research teams.">
+    <link rel="shortcut icon" href="./favicon_io/android-chrome-192x192.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./favicon_io/android-chrome-512x512.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./favicon_io/apple-touch-icon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./favicon_io/favicon-16x16.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./favicon_io/favicon-32x32.png" type="image/x-icon">
+    <title>Courses - Department of Mathematics - ABU Zaria</title>
+    <link rel="stylesheet" href="courses.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header class="page-header">
+        <div class="navbar-top-logo">
+            <div class="logo">
+                <img src="./pics/mathlogo.jpg" alt="LEAH Logo">
+            </div>
+        </div>
+        <div class="header-content-small">
+            <h1>Department Courses</h1>
+            <p>Explore our comprehensive academic programs and download course notes.</p>
+        </div>
+    </header>
+
+    <!-- Main Navigation -->
+    <nav class="main-nav-container">
+        <div class="container">
+            <ul class="main-nav">
+                <li><a href="ggg.html">Home</a></li>
+                <li><a href="courses.html" class="active">Courses</a></li>
+                <li><a href="past-question.html">Past-Questions</a></li>
+                <li><a href="team.html">Teams</a></li>
+                <li><a href="lecturer.html">Lecturers</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content for Courses Page -->
+    <main class="courses-main-content">
+        <div class="container">
+
+            <div class="course-controls">
+                <div class="filters">
+                    <label for="level-filter">Level:</label>
+                    <select id="level-filter">
+                        <option value="all">All Levels</option>
+                        <option value="100l">100 Level</option>
+                        <option value="200l">200 Level</option>
+                        <option value="300l">300 Level</option>
+                        <option value="400l">400 Level</option>
+                    </select>
+
+                    <label for="semester-filter">Semester:</label>
+                    <select id="semester-filter">
+                        <option value="all">All Semesters</option>
+                        <option value="first">First Semester</option>
+                        <option value="second">Second Semester</option>
+                    </select>
+                </div>
+                <div class="search-courses">
+                    <input type="text" id="course-search-bar" placeholder="Search courses by code or title...">
+                    <i class="fas fa-search"></i>
+                </div>
+            </div>
+
+            <!-- Course Listings by Level and Semester -->
+
+            <!-- 100 Level Courses -->
+            <section class="course-level-section" data-level="100l">
+                <h2>100 Level Courses</h2>
+
+                <div class="semester-section" data-semester="first">
+                    <h3>First Semester</h3>
+                    <div class="course-list">
+                        <div class="course-card" data-code="MTH 101" data-title="Sets and Number System" data-level="100l" data-semester="first">
+                            <h3>MTH 101 - Sets and Number System</h3>
+                            <p class="course-details"><strong>Credit Units:</strong> 2 | <strong>Prerequisite:</strong> O'Level Mathematics</p>
+                            <p class="course-description">
+                                Sets, Number systems, Functions etc.
+                            </p>
+                            <a href="./100l/" class="btn-outline" download>
+                                <i class="fas fa-download"></i> Download Notes
+                            </a>
+                        </div>
+                        <div class="course-card" data-code="MTH 103" data-title="trigonometry" data-level="100l" data-semester="first">
+                            <h3>MTH 103 - Trigonometry and Coordinate Geometry</h3>
+                            <p class="course-details"><strong>Credit Units:</strong> 2 | <strong>Prerequisite:</strong> O'Level Mathematics</p>
+                            <p class="course-description">
+                                Plane angles and their measurement, systems of circles, height and distance etc.
+                            </p>
+                            <a href="./100l/Math 103 2017-2018.docx" class="btn-outline" download>
+                                <i class="fas fa-download"></i> Download Notes
+                            </a>
+                        </div>
+                        <div class="course-card" data-code="MTH 105" data-title="Differential and Integral calculus" data-level="100l" data-semester="first">
+                            <h3>MTH 105 - Differential and Integral Calculus</h3>
+                            <p class="course-details"><strong>Credit Units:</strong> 2 | <strong>Prerequisite:</strong> O'Level Mathematics</p>
+                            <p class="course-description">
+                                Differentiation, Integration, graphs etc.
+                            </p>
+                            <a href="./100l/MTH!105-1.pdf" class="btn-outline" download>
+                                <i class="fas fa-download"></i> Download Notes
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="semester-section" data-semester="second">
+                    <h3>Second Semester</h3>
+                    <div class="course-list">
+                        <div class="course-card" data-code="MTH 102" data-title="Algebra" data-level="100l" data-semester="second">
+                            <h3>MTH 102 - Algebra</h3>
+                            <p class="course-details"><strong>Credit Units:</strong> 2 | <strong>Prerequisite:</strong> O'Level Mathematics</p>
+                            <p class="course-description">
+                                Quadratic Equations, Remainder theorem, Permutation and Combination etc.
+                            </p>
+                            <a href="./100l/Maths102mat.pdf" class="btn-outline" download>
+                                <i class="fas fa-download"></i> Download Notes
+                            </a>
+                        </div>
+                        <div class="course-card" data-code="MTH 104" data-title="Conic Section and Applications of Calculus" data-level="100l" data-semester="second">
+                            <h3>MTH 104 - Conic Section and Applications of Calculus</h3>
+                            <p class="course-details"><strong>Credit Units:</strong> 2 | <strong>Prerequisite:</strong> O'Level Mathematics</p>
+                            <p class="course-description">
+                                Parabola, Ellipse, Hyperbola, curve sketching etc.
+                            </p>
+                            <a href="course_notes/100L/2nd_Sem/MTH104_Notes.pdf" class="btn-outline" download>
+                                <i class="fas fa-download"></i> Download Notes
+                            </a>
+                        </div>
+                        <div class="course-card" data-code="MTH 106" data-title="Vector and Dynamics" data-level="100l" data-semester="second">
+                            <h3>MTH 106 - Vector and Dynamics</h3>
+                            <p class="course-details"><strong>Credit Units:</strong> 2 | <strong>Prerequisite:</strong> O'Level Mathematics</p>
+                            <p class="course-description">
+                                Vectors, Velocity and Acceleration of a particles etc.
+                            </p>
+                            <a href="./100l/" class="btn-outline" download>
+                                <i class="fas fa-download"></i> Download Notes
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 200 Level Courses -->
+            <section class="course-level-section" data-level="200l">
+                <h2>200 Level Courses</h2>
+
+                <div class="semester-section" data-semester="first">
+                    <h3>First Semester</h3>
+                    <div class="course-list">
+                        <div class="course-card" data-code="MTH 201" data-title="Mathematical Methods I" data-level="200l" data-semester="first">
+                            <h3>MTH 201 - Linear Algebra I</h3>
+                            <p class="course-details"><strong>Credit Units:</strong> 3 | <strong>Prerequisite:</strong> MTH 105</p>
+                            <p class="course-description">
+                                leibniz's theorem, Taylor and Maclaurin series etc.
+                            </p>
+                            <a href="./200l/MATH 201 - Mathematical Methods I (1).pdf" class="btn-outline" download>
+                                <i class="fas fa-download"></i> Download Notes
+                            </a>
+                        </div>
+                        <div class="course-card" data-code="MTH 203" data-title="Real Analysis I" data-level="200l" data-semester="first">
+                            <h3>MTH 203 - Real Analysis I</h3>
+                            <p class="course-details"><strong>Credit Units:</strong> 3 | <strong>Prerequisite:</strong> MTH 105</p>
+                            <p class="course-description">
+                                Boundedness, sequences, series, convergence Tests etc.
+                            </p>
+                            <a href="./200l/Math 203.pdf" class="btn-outline" download>
+                                <i class="fas fa-download"></i> Download Notes
+                            </a>
+                        </div>
+                        <div class="course-card" data-code="MTH 205" data-title="Abstract Algebra" data-level="200l" data-semester="first">
+                            <h3>MTH 205 - Abstract Algebra</h3>
+                            <p class="course-details"><strong>Credit Units:</strong> 3 | <strong>Prerequisite:</strong> MTH 101</p>
+                            <p class="course-description">
+                                Negation, Boolean Algebra, Binary Operation etc.
+                            </p>
+                            <a href="./200l/Math 205 Abstract Algebra.pdf" class="btn-outline" download>
+                                <i class="fas fa-download"></i> Download Notes
+                            </a>
+                        </div>
+                        <div class="course-card" data-code="MTH 207" data-title="Computer Programming I" data-level="200l" data-semester="first">
+                            <h3>MTH 207 - Linear Algebra I</h3>
+                            <p class="course-details"><strong>Credit Units:</strong> 3 | <strong>Prerequisite:</strong> MTH 102</p>
+                            <p class="course-description">
+                                Matrices, Gaussian elimination, Determinant etc.
+                            </p>
+                            <a href="./200l/Linear_Algebra,_4th_Edition__(2009)Lipschutz-Lipson.pdf" class="btn-outline" download>
+                                <i class="fas fa-download"></i> Download Notes
+                            </a>
+                        </div>
+                        <div class="course-card" data-code="MTH 201" data-title="Numerical analysis" data-level="200l" data-semester="first">
+                            <h3>MTH 209 - Numerical Analysis</h3>
+                            <p class="course-details"><strong>Credit Units:</strong> 3 | <strong>Prerequisite:</strong> MTH 105</p>
+                            <p class="course-description">
+                                Errors and their sources, Interpolation etc.
+                            </p>
+                            <a href="./200l/Numerical Analysis .pdf" class="btn-outline" download>
+                                <i class="fas fa-download"></i> Download Notes
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="semester-section" data-semester="second">
+                    <h3>Second Semester</h3>
+                    <div class="course-list">
+                        <div class="course-card" data-code="MTH 202" data-title="Elementary Differential Equations" data-level="200l" data-semester="second">
+                            <h3>MTH 202 - Elementary Differential Equations</h3>
+                            <p class="course-details"><strong>Credit Units:</strong> 3 | <strong>Prerequisite:</strong> MTH 104</p>
+                            <p class="course-description">
+                                Variable seperable, homogeneous, exact and linear, etc.
+                            </p>
+                            <a href="./200l/" class="btn-outline" download>
+                                <i class="fas fa-download"></i> Download Notes
+                            </a>
+                        </div>
+                        <div class="course-card" data-code="MTH 204" data-title="Real Analysis" data-level="200l" data-semester="second">
+                            <h3>MTH 204 - Real Analysis</h3>
+                            <p class="course-details"><strong>Credit Units:</strong> 3 | <strong>Prerequisite:</strong> MTH 105</p>
+                            <p class="course-description">
+                                limit of a functions, contuinity of functions on a set, etc.
+                            </p>
+                            <a href="./200l/" class="btn-outline" download>
+                                <i class="fas fa-download"></i> Download Notes
+                            </a>
+                        </div>
+                        <div class="course-card" data-code="MTH 206" data-title="Abstract Algebra" data-level="200l" data-semester="second">
+                            <h3>MTH 206 - Abstract Algebra II</h3>
+                            <p class="course-details"><strong>Credit Units:</strong> 3 | <strong>Prerequisite:</strong> MTH 102</p>
+                            <p class="course-description">
+                                Homomorphisms, kernel, cosets, subgroups etc.
+                            </p>
+                            <a href="./200l/MATH 206 (Abstract Algebra) II .pdf" class="btn-outline" download>
+                                <i class="fas fa-download"></i> Download Notes
+                            </a>
+                        </div>
+                        <div class="course-card" data-code="MTH 208" data-title="Linear Algebra" data-level="200l" data-semester="second">
+                            <h3>MTH 208 - Linear Algebra II</h3>
+                            <p class="course-details"><strong>Credit Units:</strong> 3 | <strong>Prerequisite:</strong> MTH 207</p>
+                            <p class="course-description">
+                                Vector spaces, Linear Mapping and Matrices etc.
+                            </p>
+                            <a href="./200l/MATH 208 - Linear Algebra II.pdf" class="btn-outline" download>
+                                <i class="fas fa-download"></i> Download Notes
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 300 Level Courses -->
+            <section class="course-level-section" data-level="300l">
+                <h2>300 Level Courses</h2>
+
+                <div class="semester-section" data-semester="first">
+                    <h3>First Semester</h3>
+                    <div class="course-list">
+                        <div class="course-card" data-code="MTH 301" data-title="mathematical methods" data-level="300l" data-semester="first">
+                            <h3>MTH 301 - Mathematical Methods II</h3>
+                            <p class="course-details"><strong>Credit Units:</strong> 3 | <strong>Prerequisite:</strong> MTH 201</p>
+                            <p class="course-description">
+                                Vector Fields, Gradient, Divergence and Curl etc.
+                            </p>
+                            <a href="./300l/MAT301 BY Dr.Alkali-1-1 (1).pdf" class="btn-outline" download>
+                                <i class="fas fa-download"></i> Download Notes
+                            </a>
+                        </div>
+                        <div class="course-card" data-code="MTH 303" data-title="Advanced Real Analysis I" data-level="300l" data-semester="first">
+                            <h3>MTH 303 - Advanced Real Analysis I</h3>
+                            <p class="course-details"><strong>Credit Units:</strong> 3 | <strong>Prerequisite:</strong> MTH 203</p>
+                            <p class="course-description">
+                                Bolzano- Weierstress Theorem, Closed and Open set etc.
+                            </p>
+                            <a href="./300l/Maths 303 Note (1).pdf" class="btn-outline" download>
+                                <i class="fas fa-download"></i> Download Notes
+                            </a>
+                        </div>
+                        <div class="course-card" data-code="MTH 305" data-title="Theory ring" data-level="300l" data-semester="first">
+                            <h3>MTH 305 - Theory of Rings and Fields</h3>
+                            <p class="course-details"><strong>Credit Units:</strong> 3 | <strong>Prerequisite:</strong> MTH 206</p>
+                            <p class="course-description">
+                                Abelian Groups, Homomorphisms Integral Domain etc.
+                            </p>
+                            <a href="./300l+/Maths 305(theory of rings and fields).pdf" class="btn-outline" download>
+                                <i class="fas fa-download"></i> Download Notes
+                            </a>
+                        </div>
+                        <div class="course-card" data-code="MTH 307" data-title="Complex Analysis" data-level="300l" data-semester="first">
+                            <h3>MTH 307 - Complex Analysis I</h3>
+                            <p class="course-details"><strong>Credit Units:</strong> 3 | <strong>Prerequisite:</strong> MTH 203</p>
+                            <p class="course-description">
+                                Cauchy-Riemann Equations, sequences and series of complex numbers etc.
+                            </p>
+                            <a href="./300l+/MTH307-2021-2 (2).pdf" class="btn-outline" download>
+                                <i class="fas fa-download"></i> Download Notes
+                            </a>
+                        </div>
+                        <div class="course-card" data-code="MTH 309" data-title="dynamics" data-level="300l" data-semester="first">
+                            <h3>MTH 309 - Analytic Dynamics I</h3>
+                            <p class="course-details"><strong>Credit Units:</strong> 3 | <strong>Prerequisite:</strong> MTH 201</p>
+                            <p class="course-description">
+                                Cauchy-Riemann Equations, sequences and series of complex numbers etc.
+                            </p>
+                            <a href="./300l/MATH309 Analytical Dynamics.pdf" class="btn-outline" download>
+                                <i class="fas fa-download"></i> Download Notes
+                            </a>
+                        </div>
+                        <div class="course-card" data-code="MTH 311" data-title="Modelling" data-level="300l" data-semester="first">
+                            <h3>MTH 311 - Mathematical Modelling</h3>
+                            <p class="course-details"><strong>Credit Units:</strong> 3 | <strong>Prerequisite:</strong> MTH 201</p>
+                            <p class="course-description">
+                                linear programming, Modelling using derivatives etc.
+                            </p>
+                            <a href="./300l+/MATH311(Mathematical Modeling).pdf" class="btn-outline" download>
+                                <i class="fas fa-download"></i> Download Notes
+                            </a>
+                        </div>
+                        <div class="course-card" data-code="MTH 317" data-title="Numerical Analysis" data-level="300l" data-semester="first">
+                            <h3>MTH 317 - Numerical Analysis II</h3>
+                            <p class="course-details"><strong>Credit Units:</strong> 3 | <strong>Prerequisite:</strong> MTH 209</p>
+                            <p class="course-description">
+                                Cauchy-Riemann Equations, sequences and series of complex numbers etc.
+                            </p>
+                            <a href="./300l+/Math 317 Numerical Analysis ll.pdf" class="btn-outline" download>
+                                <i class="fas fa-download"></i> Download Notes
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="semester-section" data-semester="second">
+                    <h3>Second Semester</h3>
+                    <div class="course-list">
+                        <div class="course-card" data-code="MTH 300" data-title="Siwes" data-level="300l" data-semester="second">
+                            <h3>MTH 300 - SIWES</h3>
+                            <p class="course-details"><strong>Credit Units:</strong> 3 | <strong>Prerequisite:</strong> MTH 300</p>
+                            <p class="course-description">
+                                SIWES
+                            </p>
+                            <a href="" class="btn-outline" download>
+                                <i class="fas fa-download"></i> Download Guidelines
+                            </a>
+                        </div> 
+                    </div>
+                </div>
+            </section>
+
+            <!-- 400 Level Courses -->
+            <section class="course-level-section" data-level="400l">
+                <h2>400 Level Courses</h2>
+
+                <div class="semester-section" data-semester="first">
+                    <h3>First Semester</h3>
+                    <div class="course-list">
+                        <div class="course-card" data-code="MTH 401" data-title="differential-cal" data-level="400l" data-semester="first">
+                            <h3>MTH 401 - Differential Equations</h3>
+                            <p class="course-details"><strong>Credit Units:</strong> 3 | <strong>Prerequisite:</strong> MTH 201</p>
+                            <p class="course-description">
+                                ODE, power series, sturm-liouville, gamma and beta functions etc.
+                            </p>
+                            <a href="./400l/MATH 401 ASG .pdf" class="btn-outline" download>
+                                <i class="fas fa-download"></i> Download Notes
+                            </a>
+                        </div>
+                        <div class="course-card" data-code="MTH 403" data-title="Topology" data-level="400l" data-semester="first">
+                            <h3>MTH 403 - General-Topology I</h3>
+                            <p class="course-details"><strong>Credit Units:</strong> 3 | <strong>Prerequisite:</strong> MTH 303</p>
+                            <p class="course-description">
+                                Definition and examples of Topoligical space, Open and Close sets, first and second countable spaces etc.
+                            </p>
+                            <a href="./400l++/MATH 403 ASG.pdf" class="btn-outline" download>
+                                <i class="fas fa-download"></i> Download Notes
+                            </a>
+                        </div>
+                        <div class="course-card" data-code="MTH 405" data-title="Theory of finite group" data-level="400l" data-semester="first">
+                            <h3>MTH 405 - Theory of Finite Groups </h3>
+                            <p class="course-details"><strong>Credit Units:</strong> 3 | <strong>Prerequisite:</strong> MTH 305</p>
+                            <p class="course-description">
+                                Arithmetic Structure of Groups, Sylow p-subgroup, Isomorphism theorems etc.
+                            </p>
+                            <a href="./400l+/MATH 405 Theory of Finit group.pdf" class="btn-outline" download>
+                                <i class="fas fa-download"></i> Download Notes
+                            </a>
+                        </div>
+                        <div class="course-card" data-code="MTH 407" data-title="analysis" data-level="400l" data-semester="first">
+                            <h3>MTH 407 - Advanced Real Analysis II</h3>
+                            <p class="course-details"><strong>Credit Units:</strong> 3 | <strong>Prerequisite:</strong> MTH 303</p>
+                            <p class="course-description">
+                                Uniform Convergence of sequences and series of Functions, Functions of Bounded Variations, Jordan's theorem etc.
+                            </p>
+                            <a href="./400l+/MATH 407 ASG.pdf" class="btn-outline" download>
+                                <i class="fas fa-download"></i> Download Notes
+                            </a>
+                        </div>
+                        <div class="course-card" data-code="MTH 413" data-title="hydro" data-level="400l" data-semester="first">
+                            <h3>MTH 413 - Hydrodynamics I</h3>
+                            <p class="course-details"><strong>Credit Units:</strong> 3 | <strong>Prerequisite:</strong> MTH 301</p>
+                            <p class="course-description">
+                                Langrangian and Eulerian methods of treating motion of fluids, Steady and Unsteady Flow, etc.
+                            </p>
+                            <a href="./400l+/MATH413 NOTE E.pdf" class="btn-outline" download>
+                                <i class="fas fa-download"></i> Download Notes
+                            </a>
+                        </div>
+                        <div class="course-card" data-code="MTH 425" data-title="graph" data-level="400l" data-semester="first">
+                            <h3>MTH 425 - Graph Theory and combinatorics</h3>
+                            <p class="course-details"><strong>Credit Units:</strong> 3 | <strong>Prerequisite:</strong> MTH 303</p>
+                            <p class="course-description">
+                                Graphs, Trees, Eularian and Hamiltonian graph etc.
+                            </p>
+                            <a href="./400l++/math425 feranmi.pdf" class="btn-outline" download>
+                                <i class="fas fa-download"></i> Download Notes
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="semester-section" data-semester="second">
+                    <h3>Second Semester</h3>
+                    <div class="course-list">
+                        <div class="course-card" data-code="MTH 402" data-title="Functional Analysis" data-level="400l" data-semester="second">
+                            <h3>MTH 402 - Functional Analysis</h3>
+                            <p class="course-details"><strong>Credit Units:</strong> 3 | <strong>Prerequisite:</strong> MTH 303</p>
+                            <p class="course-description">
+                                Norms, Metric spaces, Completeness and Compactness etc.
+                            </p>
+                            <a href="./400l/MATH402 (NORM).pdf" class="btn-outline" download>
+                                <i class="fas fa-download"></i> Download Notes
+                            </a>
+                        </div>
+                        <div class="course-card" data-code="MTH 408" data-title="Measure" data-level="400l" data-semester="second">
+                            <h3>MTH 408 - Measure and Intergration</h3>
+                            <p class="course-details"><strong>Credit Units:</strong> 3 | <strong>Prerequisite:</strong> MTH 303</p>
+                            <p class="course-description">
+                                Review of Riemann integral, analysis, Lebesgue Integral etc.
+                            </p>
+                            <a href="./400l+/Mats 408.pdf" class="btn-outline" download>
+                                <i class="fas fa-download"></i> Download Notes
+                            </a>
+                        </div>
+                        <div class="course-card" data-code="MTH 412" data-title="PDE" data-level="400l" data-semester="second">
+                            <h3>MTH 412 - Partial Differential Equations</h3>
+                            <p class="course-details"><strong>Credit Units:</strong> 3 | <strong>Prerequisite:</strong> MTH 202</p>
+                            <p class="course-description">
+                                BVP and IVP, Laplace and pission Equations, Green's Function etc.
+                            </p>
+                            <a href="./400l++/MATH 412aa.pdf" class="btn-outline" download>
+                                <i class="fas fa-download"></i> Download Notes
+                            </a>
+                        </div>
+                        <div class="course-card" data-code="MTH 414" data-title="hydroII" data-level="400l" data-semester="second">
+                            <h3>MTH 414 - Hydrodynamics II </h3>
+                            <p class="course-details"><strong>Credit Units:</strong> 3 | <strong>Prerequisite:</strong> MTH 301</p>
+                            <p class="course-description">
+                                Irrotational Motion, Steady and Unsteady Flow etc.
+                            </p>
+                            <a href="./400l+/MATH414..pdf" class="btn-outline" download>
+                                <i class="fas fa-download"></i> Download Notes
+                            </a>
+                        </div>
+                        <div class="course-card" data-code="MTH 416" data-title="complex" data-level="400l" data-semester="second">
+                            <h3>MTH 416 - Complex Analysis II</h3>
+                            <p class="course-details"><strong>Credit Units:</strong> 3 | <strong>Prerequisite:</strong> MTH 307</p>
+                            <p class="course-description">
+                                Taylor and Laurent series expansion, singularity and residue etc.
+                            </p>
+                            <a href="./400l/math416.pdf" class="btn-outline" download>
+                                <i class="fas fa-download"></i> Download Notes
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Department of Mathematics, Ahmadu Bello University, Zaria. All rights reserved.</p>
+        </div>
+    </footer>
+    <div class="president-corner">
+        <img src="./pics/faruq.jpg" alt="faruq">
+        <div class="president-info"> <p class="president-name">Faruq Kosim</p>
+            <small><i><p class="president-title"> U19 NAMS PRESIDENT</p></i></small>
+        </div>
+    </div>
+
+    <script src="ggg.js"></script>
+
+</body>
+</html>

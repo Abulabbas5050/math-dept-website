@@ -1,0 +1,505 @@
+/* courses.css */
+
+/* --- Variables (now local to this CSS file) --- */
+:root {
+    --primary-blue: #0A2647;
+    --secondary-blue: #144272;
+    --accent-yellow: #FFD43B;
+    --text-light: #FFFFFF;
+    --text-dark: #333333;
+    --grey-background: #F8F8F8;
+    --border-color: #DDDDDD;
+}
+
+/* --- Base Styles & Reset (now local to this CSS file) --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--grey-background);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-blue);
+}
+
+ul {
+    list-style: none;
+}
+
+/* --- Button Styles (now local to this CSS file) --- */
+/* Note: If other pages need these, they'd need their own copy or a shared global.css */
+.btn-primary {
+    background-color: var(--accent-yellow);
+    color: var(--primary-blue);
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-weight: 700;
+    transition: background-color 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary:hover {
+    background-color: #E6C229;
+}
+
+.btn-secondary {
+    background-color: var(--accent-yellow);
+    color: var(--primary-blue);
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    margin-top: auto;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+.btn-secondary:hover {
+    background-color: #E6C229;
+}
+
+.btn-outline {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid var(--secondary-blue);
+    color: var(--secondary-blue);
+    border-radius: 5px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-size: 0.85em;
+    margin-top: auto; /* Useful for flexbox items like in cards */
+}
+
+.btn-outline:hover {
+    background-color: var(--secondary-blue);
+    color: var(--text-light);
+}
+
+/* --- Header Styles (now local to this CSS file) --- */
+.page-header {
+    background-color: var(--primary-blue);
+    color: var(--text-light);
+    padding: 20px 0 0;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+}
+
+.header-content-small {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.header-content-small h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.header-content-small p {
+    font-size: 1.1em;
+    opacity: 0.9;
+}
+
+.navbar-top-logo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 40px;
+    max-width: 1200px;
+}
+
+.logo img {
+    height: 80px;
+}
+
+/* --- Main Navigation Styles (now local to this CSS file) --- */
+.main-nav-container {
+    background-color: var(--secondary-blue);
+    padding: 15px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.main-nav {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.main-nav li a {
+    color: var(--text-light);
+    font-weight: 600;
+    padding: 5px 0;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.main-nav li a:hover,
+.main-nav li a.active {
+    color: var(--accent-yellow);
+    border-bottom: 2px solid var(--accent-yellow);
+}
+
+/* --- Footer Styles (now local to this CSS file) --- */
+footer {
+    background-color: var(--secondary-blue);
+    color: var(--text-light);
+    padding: 25px 0;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+
+/* --- Styles for the Courses Page Specific Content --- */
+.courses-main-content {
+    padding: 60px 0;
+    background-color: var(--grey-background);
+}
+
+.course-controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    gap: 20px;
+}
+
+.filters {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.filters label {
+    font-weight: 600;
+    color: var(--primary-blue);
+    font-size: 1.1em;
+}
+
+.filters select {
+    padding: 10px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background-color: var(--text-light);
+    font-size: 1em;
+    color: var(--text-dark);
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http://www.w3.org/2000/svg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%20viewBox%3D%220%200%20292.4%20292.4%22%3E%3Cpath%20fill%3D%22%230A2647%22%20d%3D%22M287%20197.8L159.2%2069.9c-2.3-2.3-5.3-3.5-8.5-3.5s-6.2%201.2-8.5%203.5L5.4%20197.8c-4.6%204.6-4.6%2012%200%2016.6l12.4%2012.4c4.6%204.6%2012%204.6%2016.6%200l112-112%20112%20112c4.6%204.6%2012%204.6%2016.6%200l12.4-12.4c4.6-4.6%204.6-12%200-16.6z%22/%3E%3C/svg%3E');
+    background-repeat: no-repeat;
+    background-position: right 10px top 50%;
+    background-size: 12px auto;
+}
+
+.search-courses {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--border-color);
+    border-radius: 30px;
+    padding: 10px 20px;
+    flex-grow: 1;
+    max-width: 400px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.search-courses input {
+    border: none;
+    outline: none;
+    flex-grow: 1;
+    font-size: 1.1em;
+    padding: 5px 0;
+}
+
+.search-courses input::placeholder {
+    color: #aaa;
+}
+
+.search-courses i {
+    color: #888;
+    margin-left: 10px;
+    font-size: 1.2em;
+}
+
+.course-level-section {
+    margin-bottom: 60px;
+    padding-top: 20px;
+}
+
+.course-level-section h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.2em;
+    color: var(--primary-blue);
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.course-level-section h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 100px;
+    height: 4px;
+    background-color: var(--accent-yellow);
+    border-radius: 2px;
+}
+
+.semester-section {
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: var(--text-light);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.semester-section h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8em;
+    color: var(--secondary-blue);
+    margin-bottom: 25px;
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.course-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.course-card {
+    background-color: var(--grey-background);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.course-card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5em;
+    color: var(--primary-blue);
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.course-details {
+    font-size: 0.95em;
+    color: #666;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.course-description {
+    font-size: 1em;
+    color: var(--text-dark);
+    line-height: 1.7;
+    margin-bottom: 25px;
+    flex-grow: 1;
+    text-align: left;
+}
+
+/* Specific styling for the Download Notes button within course cards */
+.course-card .btn-outline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: auto;
+}
+
+
+/* --- Responsive adjustments for Courses Page (now local to this CSS file) --- */
+@media (max-width: 992px) {
+    .filters {
+        justify-content: center;
+        width: 100%;
+    }
+    .search-courses {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-header h1 {
+        font-size: 2em;
+    }
+    .page-header p {
+        font-size: 0.9em;
+    }
+    .course-level-section h2 {
+        font-size: 2em;
+    }
+    .course-list {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+    }
+    .semester-section h3 {
+        font-size: 1.5em;
+    }
+    .course-card h3 {
+        font-size: 1.3em;
+    }
+    .course-description {
+        font-size: 0.9em;
+    }
+    .course-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .filters {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .filters select {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-header h1 {
+        font-size: 2em;
+    }
+    .course-level-section h2 {
+        font-size: 1.8em;
+    }
+    .main-nav li a {
+        padding: 5px 8px; /* Smaller padding for very small screens */
+    }
+}
+
+/* Styles for the President's Corner element */
+.president-corner {
+    position: fixed;
+    bottom: 25px; /* Distance from the bottom */
+    right: 25px; /* Changed from 'left' to 'right' */
+    background-color: rgba(10, 38, 71, 0.95); /* Primary blue with slight transparency */
+    color: var(--text-light);
+    padding: 12px 18px;
+    border-radius: 12px; /* Slightly more rounded */
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Space between image and text */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25); /* Stronger shadow */
+    z-index: 1000; /* Ensures it stays on top of other content */
+    opacity: 0.98;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.president-corner:hover {
+    opacity: 1;
+    transform: translateY(-3px); /* Subtle lift on hover */
+}
+
+.president-corner img {
+    width: 60px; /* Larger image */
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent-yellow); /* Prominent yellow border */
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3); /* Inner white halo */
+}
+
+.president-info {
+    display: flex;
+    flex-direction: column; /* Stack name and title vertically */
+    align-items: flex-start; /* Align text to the left within its div */
+    line-height: 1.2; /* Adjust line height for stacked text */
+}
+
+.president-name {
+    margin: 0;
+    font-size: 1.2em; /* Larger font size for name */
+    font-weight: 700; /* Bolder font weight */
+    font-family: 'Montserrat', sans-serif;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2); /* Subtle text shadow */
+}
+
+.president-title {
+    margin: 0; /* Remove default paragraph margin */
+    font-size: 0.9em; /* Smaller font size for the title */
+    font-weight: 400; /* Lighter font weight */
+    color: rgba(255, 255, 255, 0.8); /* Slightly faded color */
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* Responsive adjustments for the president corner */
+@media (max-width: 768px) {
+    .president-corner {
+        bottom: 18px;
+        right: 18px;
+        padding: 10px 15px;
+        gap: 10px;
+    }
+    .president-corner img {
+        width: 50px;
+        height: 50px;
+    }
+    .president-name {
+        font-size: 1.1em;
+    }
+    .president-title {
+        font-size: 0.8em;
+    }
+}
+
+@media (max-width: 480px) {
+    .president-corner {
+        bottom: 15px;
+        right: 15px;
+        padding: 8px 12px;
+        gap: 8px;
+    }
+    .president-corner img {
+        width: 45px;
+        height: 45px;
+    }
+    .president-name {
+        font-size: 1em;
+    }
+    .president-title {
+        font-size: 0.7em;
+    }
+}
