@@ -1,0 +1,481 @@
+/* lecturers.css */
+
+/* --- Variables --- */
+:root {
+    --primary-blue: #0A2647;
+    --secondary-blue: #144272;
+    --accent-yellow: #FFD43B;
+    --text-light: #FFFFFF;
+    --text-dark: #333333;
+    --grey-background: #F8F8F8;
+    --border-color: #DDDDDD;
+    --light-blue-bg: #EAF2F8; /* A new lighter blue for a subtle touch */
+}
+
+/* --- Base Styles & Reset --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--grey-background);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-blue);
+}
+
+ul {
+    list-style: none;
+}
+
+/* --- Button Styles (not used on this page, but kept for consistency if copied from base) --- */
+.btn-primary {
+    background-color: var(--accent-yellow);
+    color: var(--primary-blue);
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-weight: 700;
+    transition: background-color 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary:hover {
+    background-color: #E6C229;
+}
+
+.btn-secondary {
+    background-color: var(--accent-yellow);
+    color: var(--primary-blue);
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    margin-top: auto;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+.btn-secondary:hover {
+    background-color: #E6C229;
+}
+
+.btn-outline {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid var(--secondary-blue);
+    color: var(--secondary-blue);
+    border-radius: 5px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-size: 0.85em;
+    margin-top: auto;
+}
+
+.btn-outline:hover {
+    background-color: var(--secondary-blue);
+    color: var(--text-light);
+}
+
+/* --- Header Styles --- */
+.page-header {
+    background-color: var(--primary-blue);
+    color: var(--text-light);
+    padding: 20px 0 0;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+}
+
+.header-content-small {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.header-content-small h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.header-content-small p {
+    font-size: 1.1em;
+    opacity: 0.9;
+}
+
+.navbar-top-logo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 40px;
+    max-width: 1200px;
+}
+
+.logo img {
+    height: 80px;
+}
+
+/* --- Main Navigation Styles --- */
+.main-nav-container {
+    background-color: var(--secondary-blue);
+    padding: 15px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.main-nav {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.main-nav li a {
+    color: var(--text-light);
+    font-weight: 600;
+    padding: 5px 0;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.main-nav li a:hover,
+.main-nav li a.active {
+    color: var(--accent-yellow);
+    border-bottom: 2px solid var(--accent-yellow);
+}
+
+/* --- Footer Styles --- */
+footer {
+    background-color: var(--secondary-blue);
+    color: var(--text-light);
+    padding: 25px 0;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+
+/* --- Styles for the Lecturers Page Specific Content (More Styled) --- */
+.lecturers-main-content {
+    padding: 60px 0;
+    background-color: var(--grey-background);
+}
+
+.lecturer-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Slightly wider cards */
+    gap: 35px; /* Increased gap */
+    padding-top: 20px;
+}
+
+.lecturer-card {
+    background-color: var(--text-light);
+    border-radius: 12px; /* More rounded corners */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1); /* More pronounced shadow */
+    overflow: hidden; /* Ensures content stays within rounded corners */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align items */
+    text-align: center;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smoother animation */
+    position: relative; /* For potential pseudo-elements or absolute positioning */
+    padding-bottom: 25px; /* Padding at the bottom */
+}
+
+.lecturer-card:hover {
+    transform: translateY(-8px); /* More pronounced lift */
+    box-shadow: 0 12px 35px rgba(0,0,0,0.15); /* Stronger shadow on hover */
+}
+
+/* Background wave/pattern at the top of the card */
+.lecturer-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px; /* Height of the background element */
+    background: linear-gradient(135deg, var(--secondary-blue), var(--primary-blue));
+    z-index: 0;
+    border-radius: 12px 12px 0 0; /* Match card border radius */
+}
+
+
+.lecturer-img-container {
+    width: 140px; /* Slightly larger image */
+    height: 140px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-top: 25px; /* Pushed down by the pseudo-element background */
+    border: 5px solid var(--accent-yellow); /* Thicker, more prominent accent border */
+    box-shadow: 0 0 0 3px rgba(255, 212, 59, 0.5), 0 5px 15px rgba(0,0,0,0.2); /* Inner and outer ring shadow */
+    z-index: 1; /* Ensure it's above the ::before pseudo-element */
+    background-color: var(--text-light); /* Background for image container */
+}
+
+.lecturer-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block; /* Remove extra space below image */
+}
+
+.lecturer-info {
+    padding: 25px;
+    padding-top: 15px; /* Reduce padding top as image has enough margin */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1; /* Allows content to take available space */
+}
+
+.lecturer-card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.9em; /* Larger name */
+    color: var(--primary-blue);
+    margin-bottom: 8px;
+    line-height: 1.2;
+}
+
+.lecturer-rank {
+    font-size: 1.05em;
+    color: var(--secondary-blue);
+    font-weight: 600;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border-color); /* Subtle separator */
+    width: 80%; /* Shorter separator */
+}
+
+.lecturer-specialization {
+    font-size: 0.95em;
+    color: #555;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.lecturer-bio {
+    font-size: 0.9em;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex-grow: 1; /* Ensures bio pushes other content down */
+    font-style: italic; /* Slightly italicized bio */
+}
+
+.lecturer-contact {
+    font-size: 0.95em;
+    margin-top: auto; /* Pushes contact and social to the bottom */
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--primary-blue);
+}
+
+.lecturer-contact a {
+    color: var(--primary-blue);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.lecturer-contact a:hover {
+    color: var(--accent-yellow);
+}
+
+.lecturer-contact i {
+    color: var(--secondary-blue);
+    font-size: 1.1em;
+}
+
+.lecturer-social {
+    margin-top: 10px;
+    display: flex;
+    gap: 20px; /* Wider gap for social icons */
+}
+
+.lecturer-social a {
+    color: var(--secondary-blue);
+    font-size: 1.6em; /* Slightly larger icons */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.lecturer-social a:hover {
+    color: var(--accent-yellow);
+    transform: translateY(-3px); /* Subtle lift on hover */
+}
+
+
+/* --- Responsive adjustments for Lecturers Page --- */
+@media (max-width: 992px) {
+    .lecturer-list {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-header h1 {
+        font-size: 2em;
+    }
+    .page-header p {
+        font-size: 0.9em;
+    }
+    .lecturer-card h3 {
+        font-size: 1.6em;
+    }
+    .lecturer-rank {
+        font-size: 1em;
+    }
+    .lecturer-specialization, .lecturer-bio, .lecturer-contact {
+        font-size: 0.85em;
+    }
+    .lecturer-img-container {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-header h1 {
+        font-size: 2em;
+    }
+    .main-nav li a {
+        padding: 5px 8px;
+    }
+    .lecturer-card {
+        padding: 20px;
+        border-radius: 10px;
+    }
+    .lecturer-card::before {
+        height: 60px;
+    }
+    .lecturer-img-container {
+        width: 100px;
+        height: 100px;
+        margin-top: 15px;
+        border-width: 4px;
+    }
+    .lecturer-info {
+        padding: 15px;
+    }
+    .lecturer-card h3 {
+        font-size: 1.4em;
+    }
+}
+
+/* Styles for the President's Corner element */
+.president-corner {
+    position: fixed;
+    bottom: 25px; /* Distance from the bottom */
+    right: 25px; /* Changed from 'left' to 'right' */
+    background-color: rgba(10, 38, 71, 0.95); /* Primary blue with slight transparency */
+    color: var(--text-light);
+    padding: 12px 18px;
+    border-radius: 12px; /* Slightly more rounded */
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Space between image and text */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25); /* Stronger shadow */
+    z-index: 1000; /* Ensures it stays on top of other content */
+    opacity: 0.98;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.president-corner:hover {
+    opacity: 1;
+    transform: translateY(-3px); /* Subtle lift on hover */
+}
+
+.president-corner img {
+    width: 60px; /* Larger image */
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent-yellow); /* Prominent yellow border */
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3); /* Inner white halo */
+}
+
+.president-info {
+    display: flex;
+    flex-direction: column; /* Stack name and title vertically */
+    align-items: flex-start; /* Align text to the left within its div */
+    line-height: 1.2; /* Adjust line height for stacked text */
+}
+
+.president-name {
+    margin: 0;
+    font-size: 1.2em; /* Larger font size for name */
+    font-weight: 700; /* Bolder font weight */
+    font-family: 'Montserrat', sans-serif;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2); /* Subtle text shadow */
+}
+
+.president-title {
+    margin: 0; /* Remove default paragraph margin */
+    font-size: 0.9em; /* Smaller font size for the title */
+    font-weight: 400; /* Lighter font weight */
+    color: rgba(255, 255, 255, 0.8); /* Slightly faded color */
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* Responsive adjustments for the president corner */
+@media (max-width: 768px) {
+    .president-corner {
+        bottom: 18px;
+        right: 18px;
+        padding: 10px 15px;
+        gap: 10px;
+    }
+    .president-corner img {
+        width: 50px;
+        height: 50px;
+    }
+    .president-name {
+        font-size: 1.1em;
+    }
+    .president-title {
+        font-size: 0.8em;
+    }
+}
+
+@media (max-width: 480px) {
+    .president-corner {
+        bottom: 15px;
+        right: 15px;
+        padding: 8px 12px;
+        gap: 8px;
+    }
+    .president-corner img {
+        width: 45px;
+        height: 45px;
+    }
+    .president-name {
+        font-size: 1em;
+    }
+    .president-title {
+        font-size: 0.7em;
+    }
+}
