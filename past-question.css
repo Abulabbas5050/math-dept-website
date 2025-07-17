@@ -156,6 +156,15 @@ img {
     display: flex;
     justify-content: center;
     gap: 30px;
+    /* ADDED FOR RESPONSIVENESS: */
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    width: 100%; /* Ensure it explicitly takes 100% of its parent container */
+    max-width: 1200px; /* Match your .container max-width */
+    margin: 0 auto; /* Center the nav if it doesn't take 100% on wider screens */
+    padding: 0 10px; /* Add some horizontal padding to prevent items from touching edges */
+    box-sizing: border-box; /* Crucial for padding/width calculation */
+    height: auto; /* Allow height to expand when wrapping */
+    align-items: center; /* Vertically center items within their line */
 }
 
 .main-nav li a {
@@ -164,6 +173,8 @@ img {
     padding: 5px 0;
     transition: all 0.3s ease;
     text-transform: uppercase;
+    /* ADDED FOR RESPONSIVENESS: */
+    white-space: nowrap; /* Prevent text from wrapping within a single nav item */
 }
 
 .main-nav li a:hover,
@@ -374,6 +385,23 @@ footer {
     .page-header p {
         font-size: 0.9em;
     }
+    /* MODIFIED: Navigation items for smaller screens */
+    .main-nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px; /* Reduce gap on smaller screens */
+        padding: 0 5px; /* Reduce padding slightly more to give content room */
+        height: auto; /* Allow height to expand when wrapping */
+        align-items: center; /* Vertically center items within their line */
+    }
+    .main-nav li {
+        margin: 0; /* Reset margin from previous nav style */
+    }
+    .main-nav li a {
+        font-size: 0.9em; /* Smaller font size for nav links */
+        padding: 5px 8px; /* Add horizontal padding to nav links themselves */
+        white-space: nowrap; /* Ensure text doesn't wrap within the link */
+    }
     .pq-level-section h2 { /* Changed from .course-level-section h2 */
         font-size: 2em;
     }
@@ -411,8 +439,18 @@ footer {
     .pq-level-section h2 { /* Changed from .course-level-section h2 */
         font-size: 1.8em;
     }
+    /* MODIFIED: Navigation items for very small screens */
+    .main-nav {
+        gap: 8px; /* Further reduce gap for very small screens */
+        justify-content: space-around; /* Distribute items more evenly */
+        padding: 0 5px; /* Smallest padding */
+        height: auto; /* Ensure height is auto here too */
+        align-items: center; /* Vertically center items within their line */
+    }
     .main-nav li a {
-        padding: 5px 8px;
+        padding: 5px 5px; /* Minimal padding for links */
+        font-size: 0.8em; /* Even smaller font size */
+        white-space: nowrap; /* Ensure text doesn't wrap within the link */
     }
     /* ADDED: Ensure pq-list maintains single column with appropriate gap */
     .pq-list {
