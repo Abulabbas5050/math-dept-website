@@ -7,6 +7,7 @@
     --text-dark: #333333;
     --grey-background: #F8F8F8;
     --border-color: #DDDDDD;
+    --light-blue-bg: #EAF2F8; /* Added from lecturers.css variables for consistency */
 }
 
 * {
@@ -37,7 +38,7 @@ ul {
     list-style: none;
 }
 
-/* ADDED: Global image responsiveness */
+/* Global image responsiveness */
 img {
     max-width: 100%;    /* Ensures all images never overflow their parent container */
     height: auto;       /* Maintains aspect ratio (prevents distortion) */
@@ -164,20 +165,26 @@ img {
     max-width: 600px;
     margin: 0 auto;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    /* Ensure it behaves correctly in responsive contexts */
+    width: 100%; /* Ensure it takes full available width within container */
+    box-sizing: border-box; /* Includes padding and border in the element's total width and height */
 }
 
 .search-box i {
     color: #888;
     margin-right: 10px;
     font-size: 1.2em;
+    flex-shrink: 0; /* Prevent icon from shrinking on small screens */
 }
 
 .search-box input {
     border: none;
     outline: none;
     flex-grow: 1;
-    font-size: 1.1em;
+    font-size: 1.1em; /* This is the initial font size, will be adjusted responsively */
     padding: 5px 0;
+    /* CRITICAL: Allows the input to shrink to fit its container, preventing overflow */
+    min-width: 0;
 }
 
 .search-box input::placeholder {
@@ -378,9 +385,14 @@ footer {
 
     .search-box {
         max-width: 90%;
+        padding: 8px 15px; /* Slightly less padding for the box */
+    }
+    /* ADDED: Font size adjustment for search input on smaller screens */
+    .search-box input {
+        font-size: 1em; /* Reduce font size for better fit */
     }
 
-    /* ADDED: Force cards to single column on tablets/larger phones */
+    /* Force cards to single column on tablets/larger phones */
     .cards-grid {
         grid-template-columns: 1fr;
         gap: 20px;
@@ -403,7 +415,21 @@ footer {
         padding: 5px 8px; /* Smaller padding for very small screens */
     }
 
-    /* ADDED: Ensure cards are single column on very small screens */
+    /* ADDED: Font size adjustment for search input on very small screens */
+    .search-box {
+        padding: 6px 10px; /* Even less padding for the box */
+        border-radius: 25px; /* Adjust border-radius if it looks off */
+    }
+    .search-box input {
+        font-size: 0.9em; /* Further reduce font size */
+        padding: 3px; /* Smaller padding for minimal space */
+    }
+    .search-box i { /* Adjust icon size if it looks too big */
+        font-size: 1em;
+        margin-right: 5px;
+    }
+
+    /* Ensure cards are single column on very small screens */
     .cards-grid {
         grid-template-columns: 1fr;
         gap: 15px;
@@ -599,7 +625,7 @@ footer {
 
 .search-suggestions .no-results {
     padding: 15px 20px;
-    color: var(--dark-grey); /* Text color for "No results found" message */
+    color: var(--text-dark); /* Changed from --dark-grey which is not defined to --text-dark */
     text-align: center;
     font-style: italic;
     background-color: var(--text-light); /* Background for the message */
