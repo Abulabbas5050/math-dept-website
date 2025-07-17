@@ -41,6 +41,13 @@ ul {
     list-style: none;
 }
 
+/* ADDED: Global image responsiveness for this CSS file */
+img {
+    max-width: 100%;    /* Ensures all images never overflow their parent container */
+    height: auto;       /* Maintains aspect ratio (prevents distortion) */
+    display: block;     /* Helps prevent extra space below images and makes width calculation more predictable */
+}
+
 /* --- Button Styles (not used on this page, but kept for consistency if copied from base) --- */
 .btn-primary {
     background-color: var(--accent-yellow);
@@ -343,6 +350,11 @@ footer {
     .page-header p {
         font-size: 0.9em;
     }
+    /* MODIFIED: Force single column for better mobile fit on lecturer cards */
+    .lecturer-list {
+        grid-template-columns: 1fr;
+        gap: 25px; /* Adjust gap for single column layout */
+    }
     .lecturer-card h3 {
         font-size: 1.6em;
     }
@@ -383,6 +395,11 @@ footer {
     }
     .lecturer-card h3 {
         font-size: 1.4em;
+    }
+    /* ADDED: Ensure lecturer-list maintains single column with appropriate gap */
+    .lecturer-list {
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
 }
 

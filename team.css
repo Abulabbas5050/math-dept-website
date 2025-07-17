@@ -40,6 +40,13 @@ ul {
     list-style: none;
 }
 
+/* ADDED: Global image responsiveness for this CSS file */
+img {
+    max-width: 100%;    /* Ensures all images never overflow their parent container */
+    height: auto;       /* Maintains aspect ratio (prevents distortion) */
+    display: block;     /* Helps prevent extra space below images and makes width calculation more predictable */
+}
+
 /* --- Button Styles --- */
 .btn-primary {
     background-color: var(--accent-yellow);
@@ -382,9 +389,9 @@ footer {
     .page-header p {
         font-size: 0.9em;
     }
-    .team-list {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Slightly smaller cards */
-        gap: 20px;
+    .team-list { /* MODIFIED: Force single column for better mobile fit */
+        grid-template-columns: 1fr;
+        gap: 20px; /* Adjust gap for single column layout */
     }
     .team-card h3 {
         font-size: 1.5em;
@@ -415,6 +422,11 @@ footer {
     .team-img-container {
         width: 100px;
         height: 100px;
+    }
+    /* ADDED: Ensure team-list maintains single column with appropriate gap */
+    .team-list {
+        grid-template-columns: 1fr;
+        gap: 15px;
     }
 }
 

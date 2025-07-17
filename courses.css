@@ -40,6 +40,13 @@ ul {
     list-style: none;
 }
 
+/* ADDED: Global image responsiveness for this CSS file */
+img {
+    max-width: 100%;    /* Ensures all images never overflow their parent container */
+    height: auto;       /* Maintains aspect ratio (prevents distortion) */
+    display: block;     /* Helps prevent extra space below images and makes width calculation more predictable */
+}
+
 /* --- Button Styles (now local to this CSS file) --- */
 /* Note: If other pages need these, they'd need their own copy or a shared global.css */
 .btn-primary {
@@ -371,9 +378,9 @@ footer {
     .course-level-section h2 {
         font-size: 2em;
     }
-    .course-list {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 20px;
+    .course-list { /* MODIFIED: Force single column for better mobile fit */
+        grid-template-columns: 1fr;
+        gap: 20px; /* Adjust gap for single column layout */
     }
     .semester-section h3 {
         font-size: 1.5em;
@@ -407,6 +414,11 @@ footer {
     }
     .main-nav li a {
         padding: 5px 8px; /* Smaller padding for very small screens */
+    }
+    /* ADDED: Ensure course-list maintains single column with appropriate gap */
+    .course-list {
+        grid-template-columns: 1fr;
+        gap: 15px;
     }
 }
 

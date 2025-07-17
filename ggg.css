@@ -37,6 +37,14 @@ ul {
     list-style: none;
 }
 
+/* ADDED: Global image responsiveness */
+img {
+    max-width: 100%;    /* Ensures all images never overflow their parent container */
+    height: auto;       /* Maintains aspect ratio (prevents distortion) */
+    display: block;     /* Helps prevent extra space below images and makes width calculation more predictable */
+}
+
+
 /* Header and Hero Section */
 .hero-section {
     background-color: var(--primary-blue);
@@ -371,6 +379,12 @@ footer {
     .search-box {
         max-width: 90%;
     }
+
+    /* ADDED: Force cards to single column on tablets/larger phones */
+    .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -387,6 +401,12 @@ footer {
 
     .main-nav li a {
         padding: 5px 8px; /* Smaller padding for very small screens */
+    }
+
+    /* ADDED: Ensure cards are single column on very small screens */
+    .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
     }
 }
 

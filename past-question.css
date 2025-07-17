@@ -40,6 +40,13 @@ ul {
     list-style: none;
 }
 
+/* ADDED: Global image responsiveness for this CSS file */
+img {
+    max-width: 100%;    /* Ensures all images never overflow their parent container */
+    height: auto;       /* Maintains aspect ratio (prevents distortion) */
+    display: block;     /* Helps prevent extra space below images and makes width calculation more predictable */
+}
+
 /* --- Button Styles (now local to this CSS file) --- */
 .btn-primary {
     background-color: var(--accent-yellow);
@@ -370,9 +377,9 @@ footer {
     .pq-level-section h2 { /* Changed from .course-level-section h2 */
         font-size: 2em;
     }
-    .pq-list { /* Changed from .course-list */
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 20px;
+    .pq-list { /* MODIFIED: Force single column for better mobile fit */
+        grid-template-columns: 1fr;
+        gap: 20px; /* Adjust gap for single column layout */
     }
     .semester-section h3 {
         font-size: 1.5em;
@@ -406,6 +413,11 @@ footer {
     }
     .main-nav li a {
         padding: 5px 8px;
+    }
+    /* ADDED: Ensure pq-list maintains single column with appropriate gap */
+    .pq-list {
+        grid-template-columns: 1fr;
+        gap: 15px;
     }
 }
 
