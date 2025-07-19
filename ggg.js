@@ -319,3 +319,39 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 });
+// hub
+
+document.addEventListener('DOMContentLoaded', function() {
+    // --- Daily Insight Logic ---
+    const dailyFacts = [
+        "Mathematics is the language in which God has written the universe. – Galileo Galilei",
+        "The only way to learn mathematics is to do mathematics. – Paul Halmos",
+        "Without mathematics, there's nothing you can do. Everything around you is mathematics. Everything around you is numbers. – Shakuntala Devi",
+        "Pure mathematics is, in its way, the poetry of logical ideas. – Albert Einstein",
+        "The essence of mathematics lies in its freedom. – Georg Cantor",
+        "Do not worry about your difficulties in Mathematics. I can assure you mine are still greater. – Albert Einstein",
+        "Mathematics is the music of reason. – James Joseph Sylvester",
+        "The laws of nature are but the mathematical thoughts of God. – Euclid",
+        "As far as the laws of mathematics refer to reality, they are not certain; and as far as they are certain, they do not refer to reality. – Albert Einstein",
+        "We will always have STEM with us. Some things will never change. – Buzz Aldrin",
+        "The highest form of pure thought is in mathematics. – Plato",
+        "The great book of nature can be read only by those who know the mathematical language. – Galileo Galilei"
+    ];
+
+    const dailyFactElement = document.getElementById('daily-fact');
+
+    function getDailyFact() {
+        // Get current date (day of the year) to pick a fact
+        const now = new Date();
+        const start = new Date(now.getFullYear(), 0, 0);
+        const diff = (now - start) + ((start.getTimezoneOffset() - now.getTimezoneOffset()) * 60 * 1000);
+        const oneDay = 1000 * 60 * 60 * 24;
+        const dayOfYear = Math.floor(diff / oneDay);
+
+        // Use modulo to cycle through facts based on day of year
+        const factIndex = dayOfYear % dailyFacts.length;
+        dailyFactElement.textContent = dailyFacts[factIndex];
+    }
+
+    getDailyFact(); // Display today's fact on load
+});
