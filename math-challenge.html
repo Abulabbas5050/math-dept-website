@@ -20,6 +20,7 @@
 
     <!-- Header Section (Common structure, styled by student-hub.css) -->
     <header class="page-header">
+        <div class="overlay"></div> <!-- Added for background overlay -->
         <div class="navbar-top-logo">
             <a href="index.html" class="logo">
                 <img src="./pics/mathlogo.jpg" alt="University Logo"> <!-- Make sure your logo path is correct -->
@@ -41,7 +42,6 @@
                 <li><a href="team.html">Teams</a></li>
                 <li><a href="lecturer.html">Lecturers</a></li>
                 <li><a href="math-challenge.html" class="active">Student-Hub</a></li> <!-- This page's link -->
-                <!-- Add other navigation links as needed -->
             </ul>
         </div>
     </nav>
@@ -98,17 +98,27 @@
             </div>
         </section>
 
-    </main>
+        <!-- NEW: Social Media Links Section -->
+        <section class="student-hub-section social-links">
+            <h2 class="section-title">Follow All Our Handles</h2>
+            <div class="social-icons-grid">
+                <a href="https://www.facebook.com/share/199ZVAEqNe/" target="_blank" class="social-icon-card">
+                    <i class="fab fa-facebook-f"></i>
+                    <span>Facebook</span>
+                </a>
+                
+                <a href="https://www.instagram.com/nams.abuzaria" target="_blank" class="social-icon-card">
+                    <i class="fab fa-instagram"></i>
+                    <span>Instagram</span>
+                </a>
+                <a href="https://chat.whatsapp.com/Fgy3XPgP6DeKPrEhiKJgVR" target="_blank" class="social-icon-card">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>WhatsApp Group</span>
+                </a>
+            </div>
+        </section>
 
-    <!-- President's Corner (Common structure, styled by student-hub.css) -->
-    <div class="president-corner">
-        <img src="./pics/faruq.jpg" alt="President's Photo"> <!-- Ensure this path is correct -->
-        <div class="president-info">
-            <p class="president-name">Faruq Kosim</p>
-            <small><i><p class="president-title">U19 NAMS PRESIDENT</p></i></small>
-            
-        </div>
-    </div>
+    </main>
 
     <!-- Footer Section (Common structure, styled by student-hub.css) -->
     <footer>
@@ -116,6 +126,15 @@
             <p>&copy; 2025 Department of Mathematics, Ahmadu Bello University, Zaria. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- President's Corner (Common structure, styled by student-hub.css) -->
+    <div class="president-corner">
+        <img src="./pics/faruq.jpg" alt="President's Photo"> <!-- Ensure this path is correct -->
+        <div class="president-info">
+            <p class="president-name">Faruq Kosim</p>
+            <small><i><p class="president-title">U19 NAMS PRESIDENT</p></i></small>
+        </div>
+    </div>
 
     <!-- Link to external JavaScript file -->
     <script src="ggg.js"></script>

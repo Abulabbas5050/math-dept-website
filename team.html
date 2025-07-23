@@ -18,9 +18,10 @@
 
     <!-- Header Section (reused structure from other pages) -->
     <header class="page-header">
+        <div class="overlay"></div> <!-- Added for background overlay -->
         <div class="navbar-top-logo">
             <div class="logo">
-                <img src="./pics/mathlogo.jpg" alt="LEAH Logo">
+                <img src="./pics/mathlogo.jpg" alt="ABU Zaria Logo">
             </div>
         </div>
         <div class="header-content-small">
@@ -39,7 +40,6 @@
                 <li><a href="team.html" class="active">Teams</a></li> <!-- 'Teams' is active -->
                 <li><a href="lecturer.html">Lecturers</a></li>
                 <li><a href="math-challenge.html">Student-Hub</a></li>
-
             </ul>
         </div>
     </nav>
@@ -48,27 +48,15 @@
     <main class="teams-main-content">
         <div class="container">
 
-            <div class="team-controls">
+            <!-- Removed .team-controls as per the provided HTML, keeping only team-list -->
+            <!-- <div class="team-controls">
                 <div class="filters">
-                    <!-- <label for="role-filter">Filter by Role:</label>
-                    <select id="role-filter">
-                        <option value="all">All Roles</option>
-                        <option value="Data Analyist">Data Analyist</option>
-                        <option value="Front-end Developer">Front-End Developer</option>
-                        <option value="Cyber-Security">Cyber-Security</option>
-                        <option value="Graphic-Designer">Graphic-Designer</option>
-                        <option value="member">Member</option>
-                    </select> -->
                 </div>
-                <!-- <div class="search-teams">
-                    <input type="text" id="team-search-bar" placeholder="Search by name, skill, or role...">
-                    <i class="fas fa-search"></i>
-                </div> -->
-            </div>
+            </div> -->
 
             <div class="team-list">
                 <!-- Example Team Card 1: Professor -->
-                 <div class="team-card" data-role="Front-End" data-name="Abbas" data-skills="dev">
+                <div class="team-card" data-role="Front-End" data-name="Abbas" data-skills="dev">
                     <div class="team-img-container">
                         <img src="./pics/abba.cartoon.jpg" alt="abbas">
                     </div>
@@ -77,15 +65,14 @@
                     <p class="team-skills"><strong>Skills:</strong> Front-End Developer</p>
                     <p class="team-contact"><i class="fas fa-envelope"></i> <a href="mailto:abbasjnr5050@gmail.com">abbasjnr5050@gmail.com</a></p>
                     <div class="team-social">
-                        <a href="www.linkedin.com/in/abbas-onimisi-salihu-454731365" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.linkedin.com/in/abbas-onimisi-salihu-454731365" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
                         <a href="https://www.facebook.com/abbas.salihu.9889" aria-label="facebook"><i class="fab fa-facebook"></i></a>
-                        <a href="https://wa.me/ 2349030637432" aria-label="Whatsapp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://wa.me/2349030637432" aria-label="Whatsapp"><i class="fab fa-whatsapp"></i></a>
                     </div>
-                    <!-- <a href="#" class="btn-outline">View Profile</a> -->
                 </div>
 
                 <!-- Example Team Card 2: Lecturer -->
-                 <div class="team-card" data-role="Data analysis" data-name="adepoju Ibrahim" data-skills="Data-Analyist">
+                <div class="team-card" data-role="Data analysis" data-name="adepoju Ibrahim" data-skills="Data-Analyist">
                     <div class="team-img-container">
                         <img src="./pics/adepoju.jpg" alt="pic">
                     </div>
@@ -94,14 +81,12 @@
                     <p class="team-skills"><strong>Skills:</strong> Data-Scientist</p>
                     <p class="team-contact"><i class="fas fa-envelope"></i> <a href="mailto:adepojuibrahim624@gmail.com">adepojuibrahim624@gmail.com</a></p>
                     <div class="team-social">
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://www.linkedin.com/in/adepoju-ibrahim-161483252" aria-label="ResearchGate"><i class="fab fa-facebook"></i></a>
-                        <a href="https://wa.me/ 2349049537559" aria-label="Whatsapp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.linkedin.com/in/adepoju-ibrahim-161483252" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.facebook.com/adepoju.ibrahim.5" aria-label="Facebook"><i class="fab fa-facebook"></i></a> <!-- Assuming this is the correct FB link -->
+                        <a href="https://wa.me/2349049537559" aria-label="Whatsapp"><i class="fab fa-whatsapp"></i></a>
                     </div>
-                    <!-- <a href="#" class="btn-outline">View Profile</a> -->
                 </div>
                 
-
                 <!-- Example Team Card 3: Researcher -->
                 <div class="team-card" data-role="cyber" data-name="raji" data-skills="Cyber-Security">
                     <div class="team-img-container">
@@ -112,10 +97,9 @@
                     <p class="team-skills"><strong>Skills:</strong> Cyber-Security</p>
                     <p class="team-contact"><i class="fas fa-envelope"></i> <a href="mailto:draji.abu@gmail.com">draji.abu@gmail.com</a></p>
                     <div class="team-social">
-                        <a href="www.linkedin.com/in/dauda-raji-8b4209356" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://wa.me/ 2349031826396" aria-label="Whatsapp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.linkedin.com/in/dauda-raji-8b4209356" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://wa.me/2349031826396" aria-label="Whatsapp"><i class="fab fa-whatsapp"></i></a>
                     </div>
-                    <!-- <a href="#" class="btn-outline">View Profile</a> -->
                 </div>
 
                 <!-- Example Team Card 4: Student -->
@@ -128,9 +112,8 @@
                     <p class="team-skills"><strong>Skills:</strong> Analyist</p>
                     <p class="team-contact"><i class="fas fa-envelope"></i> <a href="mailto:adetayoracheal25@gmail.com">adetayoracheal25@gmail.com</a></p>
                     <div class="team-social">
-                        <a href="https://wa.me/ 2348074780638" aria-label="Whatsapp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://wa.me/2348074780638" aria-label="Whatsapp"><i class="fab fa-whatsapp"></i></a>
                     </div>
-                    <!-- <a href="#" class="btn-outline">View Profile</a> -->
                 </div>
                 <!-- team card 5 -->
                 <div class="team-card" data-role="cyber" data-name="saeed" data-skills="Excel">
@@ -140,12 +123,11 @@
                     <h3> Saeed Ibrahim </h3>
                     <p class="team-role">Researcher</p>
                     <p class="team-skills"><strong>Skills:</strong> Analyist</p>
-                    <p class="team-contact"><i class="fas fa-envelope"></i> <a href="mailto:abbasaeed@gmail.com">abbasaeed15@gmail.com</a></p>
+                    <p class="team-contact"><i class="fas fa-envelope"></i> <a href="mailto:abbasaeed15@gmail.com">abbasaeed15@gmail.com</a></p>
                     <div class="team-social">
                         <a href="https://www.linkedin.com/in/ibrahim-saeed-730b56190" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://wa.me/ 2348140299495" aria-label="Whatsapp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://wa.me/2348140299495" aria-label="Whatsapp"><i class="fab fa-whatsapp"></i></a>
                     </div>
-                    <!-- <a href="#" class="btn-outline">View Profile</a> -->
                 </div>
                 <!-- Add more team cards as needed -->
 

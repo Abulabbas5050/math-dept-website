@@ -8,6 +8,9 @@
     --grey-background: #F8F8F8;
     --border-color: #DDDDDD;
     --light-blue-bg: #EAF2F8; /* Added from lecturers.css variables for consistency */
+    --shadow-light: rgba(0, 0, 0, 0.05); /* Added for consistency */
+    --shadow-medium: rgba(0, 0, 0, 0.1); /* Added for consistency */
+    --shadow-strong: rgba(0, 0, 0, 0.15); /* Added for consistency */
 }
 
 * {
@@ -21,6 +24,8 @@ body {
     line-height: 1.6;
     color: var(--text-dark);
     background-color: var(--grey-background);
+    -webkit-font-smoothing: antialiased; /* Smoother font rendering */
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .container {
@@ -32,6 +37,11 @@ body {
 a {
     text-decoration: none;
     color: var(--primary-blue);
+    transition: color 0.3s ease; /* Added transition for hover effect */
+}
+
+a:hover {
+    color: var(--accent-yellow);
 }
 
 ul {
@@ -50,39 +60,57 @@ img {
 .hero-section {
     background-color: var(--primary-blue);
     color: var(--text-light);
-    padding: 20px 0 0; /* Adjusted padding-bottom, as nav is separate */
-    min-height: 450px; /* Adjust as needed, considering nav is now separate */
+    padding: 20px 0 0;
+    min-height: 450px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Align content to top */
+    justify-content: flex-start;
     align-items: center;
     text-align: center;
-    background-image: url('path/to/your/background-image.jpg'); /* If you have a subtle background image like in the screenshot */
+    /* NEW: nams.jpg as fixed background for hero */
+    background-image: url('./pics/nams.jpg'); /* Ensure nams.jpg is in your pics folder */
     background-size: cover;
     background-position: center;
+    background-attachment: fixed; /* Fixed background effect */
+    position: relative; /* Needed for overlay */
+    overflow: hidden; /* Important to contain fixed background */
 }
 
-.navbar-top-logo { /* New class for the logo container */
+/* Overlay for Hero Section to improve text readability */
+.hero-section .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent dark overlay */
+    z-index: 1; /* Ensures overlay is above background but below content */
+}
+
+.navbar-top-logo {
     width: 100%;
     display: flex;
-    justify-content: center; /* <<< CHANGED: This will center the logo */
+    justify-content: center;
     align-items: center;
-    padding: 0 40px; /* Padding for the sides */
-    max-width: 1200px; /* Align with container width */
+    padding: 0 40px;
+    max-width: 1200px;
+    z-index: 10; /* Ensure logo is above overlay */
 }
 
 .logo img {
-    height: 80px; /* Adjust logo size */
+    height: 80px;
+    filter: drop-shadow(0 2px 5px rgba(0,0,0,0.2));
 }
 
 .hero-content {
-    flex-grow: 1; /* Pushes content to center, relative to its new space */
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-top: 50px; /* Add some space from the logo */
-    padding-bottom: 50px; /* Space below content */
+    padding-top: 50px;
+    padding-bottom: 50px;
+    z-index: 5; /* Ensure text is above overlay */
 }
 
 .hero-content h1 {
@@ -90,6 +118,7 @@ img {
     font-size: 3.5em;
     margin-bottom: 10px;
     line-height: 1.1;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
 }
 
 .hero-content h2 {
@@ -97,12 +126,14 @@ img {
     font-size: 2em;
     margin-bottom: 15px;
     font-weight: 400;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
 .hero-content p {
     font-size: 1.2em;
     margin-bottom: 30px;
     opacity: 0.9;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
 .btn-primary {
@@ -111,35 +142,42 @@ img {
     padding: 15px 30px;
     border-radius: 5px;
     font-weight: 700;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    box-shadow: 0 6px 15px var(--shadow-medium);
+    border: none;
+    cursor: pointer;
 }
 
 .btn-primary:hover {
-    background-color: #E6C229; /* Slightly darker yellow */
+    background-color: #E6C229;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px var(--shadow-strong);
 }
 
 /* NEW NAVIGATION SECTION STYLES */
 .main-nav-container {
-    background-color: var(--secondary-blue); /* Or primary-blue depending on desired look */
+    background-color: var(--secondary-blue);
     padding: 15px 0;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Optional shadow to lift it */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .main-nav {
     display: flex;
-    justify-content: center; /* Center the nav items */
-    gap: 30px; /* Space between nav items */
-    /* ADDED FOR RESPONSIVENESS: */
-    flex-wrap: wrap; /* Allow items to wrap to the next line */
-    width: 100%; /* Ensure it explicitly takes 100% of its parent container */
-    max-width: 1200px; /* Match your .container max-width */
-    margin: 0 auto; /* Center the nav if it doesn't take 100% on wider screens */
-    padding: 0 10px; /* Add some horizontal padding to prevent items from touching edges */
-    box-sizing: border-box; /* Crucial for padding/width calculation */
-    height: auto; /* Allow height to expand when wrapping */
-    align-items: center; /* Vertically center items within their line */
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 10px;
+    box-sizing: border-box;
+    height: auto;
+    align-items: center;
 }
 
 .main-nav li a {
@@ -148,8 +186,7 @@ img {
     padding: 5px 0;
     transition: all 0.3s ease;
     text-transform: uppercase;
-    /* ADDED FOR RESPONSIVENESS: */
-    white-space: nowrap; /* Prevent text from wrapping within a single nav item */
+    white-space: nowrap;
 }
 
 .main-nav li a:hover,
@@ -164,6 +201,7 @@ img {
     background-color: var(--text-light);
     padding: 40px 0;
     border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 2px 8px var(--shadow-light);
 }
 
 .search-box {
@@ -176,31 +214,118 @@ img {
     max-width: 600px;
     margin: 0 auto;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    /* Ensure it behaves correctly in responsive contexts */
-    width: 100%; /* Ensure it takes full available width within container */
-    box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+    width: 100%;
+    box-sizing: border-box;
+    background-color: var(--grey-background);
 }
 
 .search-box i {
     color: #888;
     margin-right: 10px;
     font-size: 1.2em;
-    flex-shrink: 0; /* Prevent icon from shrinking on small screens */
+    flex-shrink: 0;
 }
 
 .search-box input {
     border: none;
     outline: none;
     flex-grow: 1;
-    font-size: 1.1em; /* This is the initial font size, will be adjusted responsively */
+    font-size: 1.1em;
     padding: 5px 0;
-    /* CRITICAL: Allows the input to shrink to fit its container, preventing overflow */
     min-width: 0;
+    background-color: transparent;
 }
 
 .search-box input::placeholder {
     color: #aaa;
 }
+
+/* kkkk */
+/* --- NEW Styles for Dynamically Added Search Suggestions (Add to ggg.css) --- */
+.search-suggestions {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 600px;
+    background-color: var(--text-light);
+    border-radius: 8px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    overflow: hidden;
+    z-index: 999;
+    display: none;
+    border: 1px solid var(--border-color);
+}
+
+.search-suggestions.active {
+    display: block;
+}
+
+.search-suggestions a {
+    display: block;
+    padding: 12px 20px;
+    color: var(--primary-blue);
+    font-size: 1em;
+    transition: background-color 0.2s ease;
+}
+
+.search-suggestions a:hover {
+    background-color: var(--light-blue-bg);
+}
+
+.search-suggestions a.highlighted {
+    background-color: var(--light-blue-bg);
+    font-weight: 600;
+}
+
+/* mmmm */
+/* --- NEW Styles for Individual Search Results (Add to ggg.css) --- */
+.result-item {
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--light-blue-bg);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.result-item:last-child {
+    border-bottom: none;
+}
+
+.result-item strong {
+    color: var(--primary-blue);
+    margin-right: 5px;
+    flex-shrink: 0;
+}
+
+.result-item a {
+    color: var(--text-dark);
+    text-decoration: none;
+    font-weight: 500;
+    flex-grow: 1;
+    word-break: break-word;
+}
+
+.result-item a:hover,
+.result-item:hover a {
+    text-decoration: underline;
+}
+
+.result-item.highlighted {
+    background-color: var(--light-blue-bg);
+    font-weight: 600;
+}
+
+.search-suggestions .no-results {
+    padding: 15px 20px;
+    color: var(--text-dark);
+    text-align: center;
+    font-style: italic;
+    background-color: var(--text-light);
+}
+
 
 /* Why Study Section */
 .why-study-section {
@@ -215,13 +340,27 @@ img {
     color: var(--primary-blue);
     margin-bottom: 40px;
     text-align: center;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.why-study-section h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 100px;
+    height: 4px;
+    background-color: var(--accent-yellow);
+    border-radius: 2px;
 }
 
 .why-study-section ul {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); /* Two columns for larger screens, one for smaller */
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
     gap: 20px;
-    padding-left: 20px; /* Indent for bullet points */
+    padding-left: 20px;
 }
 
 .why-study-section ul li {
@@ -232,10 +371,10 @@ img {
 }
 
 .why-study-section ul li i {
-    color: var(--primary-blue); /* Color for checkmark icon */
+    color: var(--primary-blue);
     position: absolute;
     left: 0;
-    top: 5px; /* Adjust vertical alignment */
+    top: 5px;
     font-size: 1.2em;
 }
 
@@ -261,7 +400,7 @@ img {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Pushes button to bottom */
+    justify-content: space-between;
 }
 
 .card:hover {
@@ -273,13 +412,13 @@ img {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.8em;
     margin-bottom: 15px;
-    color: var(--accent-yellow); /* Color for card titles */
+    color: var(--accent-yellow);
 }
 
 .card p {
     font-size: 1em;
     margin-bottom: 25px;
-    flex-grow: 1; /* Allows paragraph to take available space */
+    flex-grow: 1;
 }
 
 .btn-secondary {
@@ -289,8 +428,8 @@ img {
     border-radius: 5px;
     font-weight: 600;
     transition: background-color 0.3s ease;
-    display: inline-block; /* To allow padding/margin */
-    margin-top: auto; /* Pushes button to the bottom of the flex container */
+    display: inline-block;
+    margin-top: auto;
     text-transform: uppercase;
     font-size: 0.9em;
 }
@@ -298,6 +437,7 @@ img {
 .btn-secondary:hover {
     background-color: #E6C229;
 }
+
 
 /* Testimonial Section */
 .testimonial-section {
@@ -357,28 +497,82 @@ footer {
     font-size: 0.9em;
 }
 
+/* Styles for the President's Corner element */
+.president-corner {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: rgba(10, 38, 71, 0.95);
+    color: var(--text-light);
+    padding: 12px 18px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    z-index: 1000;
+    opacity: 0.98;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.president-corner:hover {
+    opacity: 1;
+    transform: translateY(-3px);
+}
+
+.president-corner img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent-yellow);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3);
+}
+
+.president-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.2;
+}
+
+.president-name {
+    margin: 0;
+    font-size: 1.2em;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+.president-title {
+    margin: 0;
+    font-size: 0.9em;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.8);
+    font-family: 'Open Sans', sans-serif;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .navbar-top-logo {
-        justify-content: center; /* Still center on small screens */
+        justify-content: center;
         padding: 0 20px;
     }
     .main-nav {
         flex-wrap: wrap;
         justify-content: center;
-        gap: 15px; /* Reduce gap on smaller screens */
-        /* ADDED/MODIFIED for responsiveness: */
-        padding: 0 5px; /* Reduce padding slightly more to give content room */
-        height: auto; /* Allow height to expand when wrapping */
-        align-items: center; /* Vertically center items within their line */
+        gap: 15px;
+        padding: 0 5px;
+        height: auto;
+        align-items: center;
     }
     .main-nav li {
-        margin: 0; /* Reset margin from previous nav style */
+        margin: 0;
     }
     .main-nav li a {
-        font-size: 0.9em; /* Smaller font size for nav links */
-        padding: 5px 8px; /* Add horizontal padding to nav links themselves */
-        white-space: nowrap; /* Ensure text doesn't wrap within the link */
+        font-size: 0.9em;
+        padding: 5px 8px;
+        white-space: nowrap;
     }
 
     .hero-content h1 {
@@ -395,7 +589,7 @@ footer {
         font-size: 2em;
     }
     .why-study-section ul {
-        grid-template-columns: 1fr; /* Single column on smaller screens */
+        grid-template-columns: 1fr;
     }
 
     .testimonial-section blockquote {
@@ -405,124 +599,16 @@ footer {
 
     .search-box {
         max-width: 90%;
-        padding: 8px 15px; /* Slightly less padding for the box */
+        padding: 8px 15px;
     }
-    /* ADDED: Font size adjustment for search input on smaller screens */
     .search-box input {
-        font-size: 1em; /* Reduce font size for better fit */
+        font-size: 1em;
     }
 
-    /* Force cards to single column on tablets/larger phones */
     .cards-grid {
         grid-template-columns: 1fr;
         gap: 20px;
     }
-}
-
-@media (max-width: 480px) {
-    .hero-content h1 {
-        font-size: 2em;
-    }
-    .hero-content h2 {
-        font-size: 1.2em;
-    }
-    .btn-primary, .btn-secondary {
-        padding: 10px 20px;
-        font-size: 0.8em;
-    }
-
-    .main-nav {
-        gap: 8px; /* Further reduce gap for very small screens */
-        justify-content: space-around; /* Distribute items more evenly */
-        padding: 0 5px; /* Smallest padding */
-        /* ADDED/MODIFIED for responsiveness: */
-        height: auto; /* Ensure height is auto here too */
-        align-items: center; /* Vertically center items within their line */
-    }
-    .main-nav li a {
-        padding: 5px 5px; /* Minimal padding for links */
-        font-size: 0.8em; /* Even smaller font size */
-        white-space: nowrap; /* Ensure text doesn't wrap within the link */
-    }
-
-    /* ADDED: Font size adjustment for search input on very small screens */
-    .search-box {
-        padding: 6px 10px; /* Even less padding for the box */
-        border-radius: 25px; /* Adjust border-radius if it looks off */
-    }
-    .search-box input {
-        font-size: 0.9em; /* Further reduce font size */
-        padding: 3px; /* Smaller padding for minimal space */
-    }
-    .search-box i { /* Adjust icon size if it looks too big */
-        font-size: 1em;
-        margin-right: 5px;
-    }
-
-    /* Ensure cards are single column on very small screens */
-    .cards-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-}
-
-/* Styles for the President's Corner element */
-.president-corner {
-    position: fixed;
-    bottom: 25px; /* Distance from the bottom */
-    right: 25px; /* Changed from 'left' to 'right' */
-    background-color: rgba(10, 38, 71, 0.95); /* Primary blue with slight transparency */
-    color: var(--text-light);
-    padding: 12px 18px;
-    border-radius: 12px; /* Slightly more rounded */
-    display: flex;
-    align-items: center;
-    gap: 12px; /* Space between image and text */
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25); /* Stronger shadow */
-    z-index: 1000; /* Ensures it stays on top of other content */
-    opacity: 0.98;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.president-corner:hover {
-    opacity: 1;
-    transform: translateY(-3px); /* Subtle lift on hover */
-}
-
-.president-corner img {
-    width: 60px; /* Larger image */
-    height: 60px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid var(--accent-yellow); /* Prominent yellow border */
-    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3); /* Inner white halo */
-}
-
-.president-info {
-    display: flex;
-    flex-direction: column; /* Stack name and title vertically */
-    align-items: flex-start; /* Align text to the left within its div */
-    line-height: 1.2; /* Adjust line height for stacked text */
-}
-
-.president-name {
-    margin: 0;
-    font-size: 1.2em; /* Larger font size for name */
-    font-weight: 700; /* Bolder font weight */
-    font-family: 'Montserrat', sans-serif;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.2); /* Subtle text shadow */
-}
-
-.president-title {
-    margin: 0; /* Remove default paragraph margin */
-    font-size: 0.9em; /* Smaller font size for the title */
-    font-weight: 400; /* Lighter font weight */
-    color: rgba(255, 255, 255, 0.8); /* Slightly faded color */
-    font-family: 'Open Sans', sans-serif;
-}
-
-/* Responsive adjustments for the president corner */
-@media (max-width: 768px) {
     .president-corner {
         bottom: 18px;
         right: 18px;
@@ -542,6 +628,50 @@ footer {
 }
 
 @media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2em;
+    }
+    .hero-content h2 {
+        font-size: 1.2em;
+    }
+    .btn-primary, .btn-secondary {
+        padding: 10px 20px;
+        font-size: 0.8em;
+    }
+
+    .main-nav {
+        gap: 8px;
+        justify-content: space-around;
+        padding: 0 5px;
+        height: auto;
+        align-items: center;
+    }
+    .main-nav li a {
+        padding: 5px 5px;
+        font-size: 0.8em;
+        white-space: nowrap;
+    }
+
+    .search-box {
+        padding: 6px 10px;
+        border-radius: 25px;
+    }
+    .search-box input {
+        font-size: 0.9em;
+        padding: 3px;
+    }
+    .search-box i {
+        font-size: 1em;
+        margin-right: 5px;
+    }
+
+    .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    .testimonial-section blockquote {
+        font-size: 1.2em;
+    }
     .president-corner {
         bottom: 15px;
         right: 15px;
@@ -557,131 +687,5 @@ footer {
     }
     .president-title {
         font-size: 0.7em;
-    }
-}
-
-
-/* kkkk */
-/* --- NEW Styles for Dynamically Added Search Suggestions (Add to ggg.css) --- */
-.search-suggestions {
-    position: absolute;
-    top: calc(100% + 10px); /* Puts it 10px below the search bar */
-    left: 0;
-    width: 100%;
-    background-color: var(--text-light);
-    border-radius: 8px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-    overflow: hidden;
-    z-index: 999;
-    display: none; /* Hidden by default, JavaScript shows it */
-}
-
-.search-suggestions.active {
-    display: block; /* Show when JavaScript adds 'active' class */
-}
-
-.search-suggestions a {
-    display: block;
-    padding: 12px 20px;
-    color: var(--primary-blue);
-    font-size: 1em;
-    transition: background-color 0.2s ease;
-}
-
-.search-suggestions a:hover {
-    background-color: var(--light-blue-bg);
-}
-
-.search-suggestions a.highlighted {
-    background-color: var(--light-blue-bg);
-    font-weight: 600;
-}
-
-/* --- Responsive adjustments for search suggestions --- */
-@media (max-width: 768px) {
-    .search-suggestions a {
-        padding: 10px 15px;
-        font-size: 0.95em;
-    }
-}
-
-@media (max-width: 480px) {
-    .search-suggestions a {
-        padding: 8px 12px;
-        font-size: 0.9em;
-    }
-}
-
-/* mmmm */
-/* --- EXISTING .search-suggestions styles remain untouched above this --- */
-
-/* --- NEW Styles for Individual Search Results (Add to ggg.css) --- */
-.result-item {
-    padding: 12px 20px; /* Padding inside each result item */
-    border-bottom: 1px solid var(--light-blue-bg); /* A subtle separator line */
-    display: flex; /* Use flexbox for easy alignment of type and title */
-    align-items: center; /* Vertically center content */
-    cursor: pointer; /* Indicates it's clickable */
-    transition: background-color 0.2s ease; /* Smooth hover effect */
-}
-
-.result-item:last-child {
-    border-bottom: none; /* No border for the last item in the list */
-}
-
-.result-item strong {
-    color: var(--primary-blue); /* Color for "Course:", "Past Question:" */
-    margin-right: 5px; /* Space between type and title */
-    flex-shrink: 0; /* Prevent the strong tag from shrinking */
-}
-
-.result-item a {
-    color: var(--text-dark); /* Color for the link text (e.g., MTH 101: Elementary Mathematics I) */
-    text-decoration: none; /* Remove underline by default */
-    font-weight: 500;
-    flex-grow: 1; /* Allow the link to take up available space */
-    word-break: break-word; /* Prevent long titles from overflowing */
-}
-
-.result-item a:hover,
-.result-item:hover a { /* Underline on hover for better UX */
-    text-decoration: underline;
-}
-
-.result-item.highlighted { /* Style for keyboard navigation highlight */
-    background-color: var(--light-blue-bg); /* Highlight background */
-    font-weight: 600; /* Make text bolder */
-}
-
-.search-suggestions .no-results {
-    padding: 15px 20px;
-    color: var(--text-dark); /* Changed from --dark-grey which is not defined to --text-dark */
-    text-align: center;
-    font-style: italic;
-    background-color: var(--text-light); /* Background for the message */
-}
-
-/* --- Responsive adjustments for result items --- */
-@media (max-width: 768px) {
-    .result-item {
-        padding: 10px 15px;
-    }
-    .result-item strong, .result-item a {
-        font-size: 0.95em;
-    }
-    .search-suggestions .no-results {
-        font-size: 0.95em;
-    }
-}
-
-@media (max-width: 480px) {
-    .result-item {
-        padding: 8px 12px;
-    }
-    .result-item strong, .result-item a {
-        font-size: 0.9em;
-    }
-    .search-suggestions .no-results {
-        font-size: 0.9em;
     }
 }
