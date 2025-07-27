@@ -203,15 +203,35 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-            { title: "MTH 101 - Past Question 2022", type: "Past Question", link: "pdfs/mth101-2022.pdf" },
-            { title: "MTH 202 - Past Question 2021", type: "Past Question", link: "pdfs/mth202-2021.pdf" },
-            { title: "MTH 301 - Past Question 2020", type: "Past Question", link: "pdfs/mth301-2020.pdf" },
-            { title: "MTH 401 - Past Question 2022", type: "Past Question", link: "pdfs/mth401-2022.pdf" },
+            { title: "MTH 101 - Past Question 2022", type: "Past Question", link: "past-question.html" },
+            { title: "MTH 202 - Past Question 2021", type: "Past Question", link: "past-question.html" },
+            { title: "MTH 301 - Past Question 2020", type: "Past Question", link: "past-question.html" },
+            { title: "MTH 401 - Past Question 2022", type: "Past Question", link: "past-question.html" },
             { title: "Abbas Onimisi Salihu", type: "Team", link: "team.html" },
             { title: "Dauda Raji", type: "Team", link: "team.html" },
             { title: "Adepoju Ibrahim", type: "Team", link: "team.html" },
             { title: "Rachel", type: "Team", link: "team.html" },
-            { title: "Saeed Ibrahim", type: "Team", link: "team.html" }
+            { title: "Saeed Ibrahim", type: "Team", link: "team.html" },
+
+            { title: "Prof.I.A Fulatan", type: "lecturer", link: "lecturer.html" },
+            { title: "Prof. B. Sani", type: "lecturer", link: "lecturer.html" },
+            { title: "Prof. A.A. Tijani", type: "lecturer", link: "lecturer.html" },
+            { title: "Prof. Jha", type: "lecturer", link: "lecturer.html" },
+            { title: "Prof. Jagadish", type: "lecturer", link: "lecturer.html" },
+            { title: "Prof. H.M. Jibril", type: "lecturer", link: "lecturer.html" },
+            { title: "Prof. A.O. Ajibade", type: "lecturer", link: "lecturer.html" },
+            { title: "Prof. Abdul", type: "lecturer", link: "lecturer.html" },
+            { title: "Prof. Y.M. Baraya", type: "lecturer", link: "lecturer.html" },
+            { title: "Prof. Aisha Umar", type: "lecturer", link: "lecturer.html" },
+            { title: "Mrs. Yakubu", type: "lecturer", link: "lecturer.html" },
+            { title: "Dr. A.T Imam", type: "lecturer", link: "lecturer.html" },
+            { title: "Dr. Shagari", type: "lecturer", link: "lecturer.html" },
+            { title: "Dr. Oni", type: "lecturer", link: "lecturer.html" },
+            { title: "Prof.G.U Garba", type: "lecturer", link: "lecturer.html" },
+
+
+
+            
 
 
 
