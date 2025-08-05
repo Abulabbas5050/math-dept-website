@@ -466,47 +466,74 @@ footer {
     z-index: 1;
 }
 
-/* --- Daily Insight Section (NEW) --- */
-.daily-insight {
-    background-color: var(--light-blue-bg);
-    border: 1px solid var(--secondary-blue);
-    padding: 40px;
+/* NEW: Math Puzzle of the Week Section (Moved to Student Hub) */
+.math-puzzle-section {
+    background-color: var(--light-blue-bg); /* Use a lighter background for fun */
+    padding: 40px; /* Consistent with other student-hub-section padding */
     text-align: center;
-    border-radius: 12px;
-    box-shadow: 0 6px 20px var(--shadow-medium);
+    border-radius: 12px; /* Consistent with student-hub-section */
+    box-shadow: 0 8px 25px var(--shadow-medium); /* Consistent with student-hub-section */
+    border: 1px solid var(--border-color); /* Consistent with student-hub-section */
+    margin-bottom: 80px; /* Consistent with student-hub-section */
 }
 
-.insight-content {
+.puzzle-content {
+    background-color: var(--card-background); /* White card for the puzzle */
+    max-width: 800px;
+    margin: 50px auto 0 auto; /* Space below title */
+    padding: 40px;
+    border-radius: 15px; /* More rounded for a softer feel */
+    box-shadow: 0 10px 30px var(--shadow-medium); /* Prominent shadow */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px; /* Space between elements */
+}
+
+#puzzle-question {
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.8em;
-    font-style: italic;
+    font-size: 2em;
+    font-weight: 600;
     color: var(--primary-blue);
     line-height: 1.4;
-    max-width: 800px;
-    margin: 0 auto;
-    position: relative;
+    text-align: center;
 }
 
-.insight-content::before,
-.insight-content::after {
-    content: '"';
-    font-size: 3em;
-    color: rgba(0, 0, 0, 0.1);
-    position: absolute;
-    line-height: 0;
+#puzzle-answer {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.2em;
+    color: var(--text-dark);
+    line-height: 1.6;
+    text-align: center;
+    background-color: #F8F8F8; /* Light background for answer */
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px dashed var(--border-color); /* Dashed border for visual cue */
+    width: 100%;
+    box-sizing: border-box;
+    transition: all 0.5s ease-in-out; /* Smooth transition for show/hide */
+    overflow: hidden; /* Hide content when hidden */
+    max-height: 0; /* Start hidden */
+    opacity: 0; /* Start transparent */
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
-.insight-content::before {
-    top: 0.2em;
-    left: -0.5em;
+#puzzle-answer.hidden {
+    max-height: 0;
+    opacity: 0;
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
-.insight-content::after {
-    bottom: -0.2em;
-    right: -0.5em;
+#puzzle-answer:not(.hidden) {
+    max-height: 200px; /* Max height when visible */
+    opacity: 1;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
-/* --- NEW: Social Media Links Section --- */
+/* --- Social Media Links Section --- */
 .social-links {
     /* Inherits student-hub-section styles */
     background-color: var(--card-background); /* White background */
@@ -621,8 +648,19 @@ footer {
     .quick-link-card i {
         font-size: 3em;
     }
-    .daily-insight .insight-content {
-        font-size: 1.5em;
+    /* Math Puzzle (on Student Hub) */
+    .math-puzzle-section .section-title {
+        font-size: 2.2em;
+    }
+    .math-puzzle-section .puzzle-content {
+        padding: 30px;
+        gap: 20px;
+    }
+    .math-puzzle-section #puzzle-question {
+        font-size: 1.6em;
+    }
+    .math-puzzle-section #puzzle-answer {
+        font-size: 1em;
     }
     /* Social Links */
     .social-icons-grid {
@@ -701,8 +739,19 @@ footer {
     .quick-link-card i {
         font-size: 2.5em;
     }
-    .daily-insight .insight-content {
-        font-size: 1.3em;
+    /* Math Puzzle (on Student Hub) */
+    .math-puzzle-section .section-title {
+        font-size: 2em;
+    }
+    .math-puzzle-section .puzzle-content {
+        padding: 25px;
+        gap: 15px;
+    }
+    .math-puzzle-section #puzzle-question {
+        font-size: 1.4em;
+    }
+    .math-puzzle-section #puzzle-answer {
+        font-size: 0.95em;
     }
     /* Social Links */
     .social-icons-grid {
@@ -778,12 +827,21 @@ footer {
         text-align: left;
         margin-bottom: 5px;
     }
-    .daily-insight .insight-content {
-        font-size: 1.1em;
+    /* Math Puzzle (on Student Hub) */
+    .math-puzzle-section .section-title {
+        font-size: 1.8em;
     }
-    .daily-insight .insight-content::before,
-    .daily-insight .insight-content::after {
-        font-size: 2.5em;
+    .math-puzzle-section .puzzle-content {
+        padding: 20px;
+        gap: 10px;
+    }
+    .math-puzzle-section #puzzle-question {
+        font-size: 1.2em;
+    }
+    .math-puzzle-section #puzzle-answer {
+        font-size: 0.85em;
+        padding-top: 15px;
+        padding-bottom: 15px;
     }
     /* Social Links */
     .social-icons-grid {

@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 levelSection.querySelectorAll('.semester-section').forEach(semesterSection => {
                     let semesterSectionHasVisibleCourses = true;
                     if (semesterSection.id === 'first-semester-courses' && selectedSemester === 'second') {
-                         semesterSectionHasVisibleCourses = false;
+                        semesterSectionHasVisibleCourses = false;
                     }
                     if (semesterSection.id === 'second-semester-courses' && selectedSemester === 'first') {
                         semesterSectionHasVisibleCourses = false;
@@ -122,8 +122,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 let levelSectionHasVisiblePQs = false;
                 levelSection.querySelectorAll('.semester-section').forEach(semesterSection => {
                     let semesterSectionHasVisiblePQs = true;
-                     if (semesterSection.id === 'first-semester-past-questions' && selectedSemester === 'second') {
-                         semesterSectionHasVisiblePQs = false;
+                    if (semesterSection.id === 'first-semester-past-questions' && selectedSemester === 'second') {
+                        semesterSectionHasVisiblePQs = false;
                     }
                     if (semesterSection.id === 'second-semester-past-questions' && selectedSemester === 'first') {
                         semesterSectionHasVisiblePQs = false;
@@ -200,9 +200,6 @@ document.addEventListener('DOMContentLoaded', function() {
             { title: "MTH 425: Graph Theory and Combinatories", type: "Courses", link: "courses.html" },
 
 
-
-
-
             { title: "MTH 101 - Past Question 2022", type: "Past Question", link: "past-question.html" },
             { title: "MTH 202 - Past Question 2021", type: "Past Question", link: "past-question.html" },
             { title: "MTH 301 - Past Question 2020", type: "Past Question", link: "past-question.html" },
@@ -229,15 +226,6 @@ document.addEventListener('DOMContentLoaded', function() {
             { title: "Dr. Oni", type: "lecturer", link: "lecturer.html" },
             { title: "Prof.G.U Garba", type: "lecturer", link: "lecturer.html" },
 
-
-
-            
-
-
-
-
-
-            
 
             // Add more items here as needed!
         ];
@@ -315,13 +303,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // Function to update the 'highlighted' class on result items
-        function updateHighlight(visibleResults) {
-            visibleResults.forEach((el, i) => {
+        function updateHighlight(items) {
+            items.forEach((el, i) => {
                 el.classList.toggle('highlighted', i === highlightedIndex);
             });
             // Scroll highlighted item into view if necessary
             if (highlightedIndex !== -1) {
-                visibleResults[highlightedIndex].scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+                items[highlightedIndex].scrollIntoView({ block: 'nearest', behavior: 'smooth' });
             }
         }
 
@@ -338,21 +326,17 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-});
-// hub
-
-document.addEventListener('DOMContentLoaded', function() {
     // --- Daily Insight Logic ---
     const dailyFacts = [
         "Mathematics is the language in which God has written the universe. – Galileo Galilei",
         "The only way to learn mathematics is to do mathematics. – Paul Halmos",
         "Without mathematics, there's nothing you can do. Everything around you is mathematics. Everything around you is numbers. – Shakuntala Devi",
-        "Pure mathematics is, in its way, the poetry of logical ideas. – Albert Einstein",
-        "The essence of mathematics lies in its freedom. – Georg Cantor",
-        "Do not worry about your difficulties in Mathematics. I can assure you mine are still greater. – Albert Einstein",
         "Mathematics is the music of reason. – James Joseph Sylvester",
-        "The laws of nature are but the mathematical thoughts of God. – Euclid",
         "As far as the laws of mathematics refer to reality, they are not certain; and as far as they are certain, they do not refer to reality. – Albert Einstein",
+        "The essence of mathematics is not to make simple things complicated, but to make complicated things simple. – S. Gudder",
+        "Pure mathematics is, in its way, the poetry of logical ideas. – Albert Einstein",
+        "Do not worry about your difficulties in mathematics; I can assure you that mine are still greater. – Albert Einstein",
+        "The laws of nature are but the mathematical thoughts of God. – Euclid",
         "We will always have STEM with us. Some things will never change. – Buzz Aldrin",
         "The highest form of pure thought is in mathematics. – Plato",
         "The great book of nature can be read only by those who know the mathematical language. – Galileo Galilei"
@@ -360,7 +344,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const dailyFactElement = document.getElementById('daily-fact');
 
-    function getDailyFact() {
+    if (dailyFactElement) {
         // Get current date (day of the year) to pick a fact
         const now = new Date();
         const start = new Date(now.getFullYear(), 0, 0);
@@ -373,5 +357,56 @@ document.addEventListener('DOMContentLoaded', function() {
         dailyFactElement.textContent = dailyFacts[factIndex];
     }
 
-    getDailyFact(); // Display today's fact on load
+    // --- Math Puzzle of the Week Logic (Now on Student Hub Page, math-challenge.html) ---
+    // This logic will only run if the elements exist on the current page.
+    const toggleAnswerBtn = document.getElementById('toggle-answer-btn');
+    const puzzleAnswer = document.getElementById('puzzle-answer');
+
+    if (toggleAnswerBtn && puzzleAnswer) {
+        toggleAnswerBtn.addEventListener('click', () => {
+            puzzleAnswer.classList.toggle('hidden');
+            if (puzzleAnswer.classList.contains('hidden')) {
+                toggleAnswerBtn.textContent = 'Show Answer';
+            } else {
+                toggleAnswerBtn.textContent = 'Hide Answer';
+            }
+        });
+
+        const mathPuzzles = [
+            {
+                question: "I am an odd number. Take away one letter and I become even. What number am I?",
+                answer: "The number is **Seven (7)**. Take away the 's' and it becomes 'even'."
+            },
+            {
+                question: "What has an infinite number of faces, but you can still hold it in your hand?",
+                answer: "A **mirror**."
+            },
+            {
+                question: "Using only addition, how can you add eight 8s to get the number 1,000?",
+                answer: "888 + 88 + 8 + 8 + 8 = 1,000"
+            },
+            {
+                question: "A man is looking at a portrait. He says, 'Brothers and sisters I have none, but that man's father is my father's son.' Who is the man in the portrait?",
+                answer: "The man in the portrait is his **son**."
+            }
+        ];
+
+        function setDailyPuzzle() {
+            const puzzleQuestionElem = document.getElementById('puzzle-question');
+            const puzzleAnswerElem = document.getElementById('puzzle-answer');
+            // No need to re-get toggleAnswerBtn here as it's already in scope
+
+            if (puzzleQuestionElem && puzzleAnswerElem) {
+                const randomIndex = Math.floor(Math.random() * mathPuzzles.length);
+                const selectedPuzzle = mathPuzzles[randomIndex];
+
+                puzzleQuestionElem.textContent = selectedPuzzle.question;
+                puzzleAnswerElem.innerHTML = selectedPuzzle.answer;
+                puzzleAnswerElem.classList.add('hidden'); // Ensure it's hidden initially
+                toggleAnswerBtn.textContent = 'Show Answer'; // Reset button text
+            }
+        }
+
+        setDailyPuzzle(); // Call setDailyPuzzle when the DOM is loaded for this page
+    }
 });
