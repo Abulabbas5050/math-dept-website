@@ -425,7 +425,7 @@ img {
     /* --- REVERTED & ADJUSTED: Left position to fit the new padding --- */
     left: 15px; /* Adjusted from 0 to 15px to be inside the padding */
     top: 50%; /* Center vertically */
-    transform: translateY(-50%); /* Adjust for vertical centering */
+    transform: translateY(-50%);
     font-size: 1.2em;
     flex-shrink: 0; /* Prevent icon from shrinking */
 }
@@ -805,13 +805,13 @@ footer {
     }
     /* Navigation */
     .main-nav {
-        gap: 5px;
+        gap: 3px; /* --- MODIFIED: Even smaller gap --- */
         padding: 0;
     }
     .main-nav li a {
         /* --- MODIFIED: More aggressive shrinking for mobile nav links --- */
-        font-size: 0.7em; /* Even smaller font size */
-        padding: 2px 3px; /* Even smaller padding */
+        font-size: 0.65em; /* Even smaller font size */
+        padding: 2px 2px; /* Even smaller padding */
     }
     /* Search */
     .search-box {
