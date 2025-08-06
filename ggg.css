@@ -5,9 +5,8 @@
     --accent-yellow: #FFD43B; /* Yellow for button */
     --text-light: #FFFFFF;
     --text-dark: #333333;
-    --grey-background: #F0F2F5; /* Lighter, softer grey for background */
-    --card-background: #FFFFFF; /* Pure white for main content cards */
-    --border-color: #E0E0E0; /* Softer border */
+    --grey-background: #F8F8F8;
+    --border-color: #DDDDDD;
     --light-blue-bg: #EAF2F8; /* Added from lecturers.css variables for consistency */
     --shadow-light: rgba(0, 0, 0, 0.05); /* Added for consistency */
     --shadow-medium: rgba(0, 0, 0, 0.1); /* Added for consistency */
@@ -27,7 +26,6 @@ body {
     background-color: var(--grey-background);
     -webkit-font-smoothing: antialiased; /* Smoother font rendering */
     -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden; /* Prevent horizontal scroll bar from appearing */
 }
 
 .container {
@@ -52,9 +50,9 @@ ul {
 
 /* Global image responsiveness */
 img {
-    max-width: 100%; 
-    height: auto; 
-    display: block; 
+    max-width: 100%;    /* Ensures all images never overflow their parent container */
+    height: auto;       /* Maintains aspect ratio (prevents distortion) */
+    display: block;     /* Helps prevent extra space below images and makes width calculation more predictable */
 }
 
 
@@ -69,7 +67,8 @@ img {
     justify-content: flex-start;
     align-items: center;
     text-align: center;
-    background-image: url('./pics/nams.jpg'); /* Ensure nams.jpg is in your pics folder */
+    /* Hero background image */
+    background-image: url('./pics/nams.jpg'); 
     background-size: cover;
     background-position: center;
     background-attachment: fixed; /* Fixed background effect */
@@ -112,17 +111,11 @@ img {
     padding-top: 50px;
     padding-bottom: 50px;
     z-index: 5; /* Ensure text is above overlay */
-    max-width: 900px; /* Constrain content width */
-    margin: 0 auto; /* Center the content horizontally */
-    width: 100%; /* Ensure it takes full available width up to max-width */
-    box-sizing: border-box; /* Include padding in width calculation */
-    padding-left: 20px; /* Add horizontal padding for responsiveness */
-    padding-right: 20px; /* Add horizontal padding for responsiveness */
 }
 
 .hero-content h1 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 3.5em; /* Base size */
+    font-size: 3.5em;
     margin-bottom: 10px;
     line-height: 1.1;
     text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
@@ -130,14 +123,14 @@ img {
 
 .hero-content h2 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 2em; /* Base size */
+    font-size: 2em;
     margin-bottom: 15px;
     font-weight: 400;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
 .hero-content p {
-    font-size: 1.2em; /* Base size */
+    font-size: 1.2em;
     margin-bottom: 30px;
     opacity: 0.9;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
@@ -147,16 +140,14 @@ img {
     background-color: var(--accent-yellow);
     color: var(--primary-blue);
     padding: 15px 30px;
-    border-radius: 8px; /* Consistent with other buttons */
+    border-radius: 5px;
     font-weight: 700;
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
     text-transform: uppercase;
-    letter-spacing: 0.8px; /* Consistent with other buttons */
+    letter-spacing: 0.5px;
     box-shadow: 0 6px 15px var(--shadow-medium);
     border: none;
     cursor: pointer;
-    font-family: 'Montserrat', sans-serif; /* Consistent font */
-    font-size: 1em; /* Consistent font size */
 }
 
 .btn-primary:hover {
@@ -168,8 +159,8 @@ img {
 /* NEW NAVIGATION SECTION STYLES */
 .main-nav-container {
     background-color: var(--secondary-blue);
-    padding: 18px 0; /* Consistent padding */
-    box-shadow: 0 4px 15px var(--shadow-medium); /* Consistent shadow */
+    padding: 15px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -178,12 +169,12 @@ img {
 .main-nav {
     display: flex;
     justify-content: center;
-    gap: 35px; /* Consistent gap */
+    gap: 30px;
     flex-wrap: wrap;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 15px; /* Consistent padding */
+    padding: 0 10px;
     box-sizing: border-box;
     height: auto;
     align-items: center;
@@ -192,20 +183,16 @@ img {
 .main-nav li a {
     color: var(--text-light);
     font-weight: 600;
-    padding: 8px 0;
+    padding: 5px 0;
     transition: all 0.3s ease;
     text-transform: uppercase;
-    /* --- CRITICAL FIX: Removed white-space: nowrap; to allow text wrapping --- */
-    /* white-space: nowrap; */
-    font-size: 1.05em;
-    position: relative;
+    white-space: nowrap;
 }
 
 .main-nav li a:hover,
 .main-nav li a.active {
     color: var(--accent-yellow);
-    border-bottom: 3px solid var(--accent-yellow);
-    transform: translateY(-2px);
+    border-bottom: 2px solid var(--accent-yellow);
 }
 
 
@@ -253,7 +240,7 @@ img {
     color: #aaa;
 }
 
-/* --- Styles for Dynamically Added Search Suggestions --- */
+/* Styles for Dynamically Added Search Suggestions */
 .search-suggestions {
     position: absolute;
     top: calc(100% + 10px);
@@ -261,9 +248,9 @@ img {
     transform: translateX(-50%);
     width: 100%;
     max-width: 600px;
-    background-color: var(--card-background); /* Changed to card-background */
+    background-color: var(--text-light);
     border-radius: 8px;
-    box-shadow: 0 8px 25px var(--shadow-medium); /* Consistent shadow */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
     overflow: hidden;
     z-index: 999;
     display: none;
@@ -291,7 +278,7 @@ img {
     font-weight: 600;
 }
 
-/* --- Styles for Individual Search Results --- */
+/* Styles for Individual Search Results */
 .result-item {
     padding: 12px 20px;
     border-bottom: 1px solid var(--light-blue-bg);
@@ -334,33 +321,9 @@ img {
     color: var(--text-dark);
     text-align: center;
     font-style: italic;
-    background-color: var(--card-background); /* Consistent background */
+    background-color: var(--text-light);
 }
 
-
-/* Section Title (Unified Style) */
-.section-title {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 2.8em; /* Consistent with other section titles */
-    color: var(--primary-blue);
-    text-align: center;
-    margin-bottom: 50px; /* Consistent margin */
-    position: relative;
-    padding-bottom: 15px; /* Consistent padding */
-    font-weight: 700;
-}
-
-.section-title::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 0;
-    width: 120px; /* Consistent width */
-    height: 5px; /* Consistent height */
-    background-color: var(--accent-yellow);
-    border-radius: 3px;
-}
 
 /* Why Study Section */
 .why-study-section {
@@ -369,7 +332,7 @@ img {
     text-align: left;
 }
 
-.why-study-section h2 {
+.section-title {
     font-family: 'Montserrat', sans-serif;
     font-size: 2.5em;
     color: var(--primary-blue);
@@ -379,7 +342,7 @@ img {
     padding-bottom: 10px;
 }
 
-.why-study-section h2::after {
+.section-title::after {
     content: '';
     position: absolute;
     left: 50%;
@@ -393,43 +356,24 @@ img {
 
 .why-study-section ul {
     display: grid;
-    /* Retained original grid-template-columns for desktop/tablet */
     grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
     gap: 20px;
     padding-left: 20px;
-    /* Added padding-right for symmetry and to prevent overflow */
-    padding-right: 20px;
-    /* Ensure the grid itself doesn't cause overflow on larger screens */
-    max-width: 1200px;
-    margin: 0 auto;
 }
 
 .why-study-section ul li {
     font-size: 1.1em;
     margin-bottom: 15px;
     position: relative;
-    /* --- MODIFIED: Increased padding-left for icon space --- */
-    padding-left: 50px; /* Adjusted to give sufficient space for the icon */
-    /* Added card-like styling for better visual presentation */
-    background-color: var(--card-background);
-    padding-top: 15px;
-    padding-bottom: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px var(--shadow-light);
-    border: 1px solid var(--border-color);
-    display: flex; /* Use flexbox for vertical alignment of icon and text */
-    align-items: center; /* Vertically center icon and text */
+    padding-left: 30px;
 }
 
 .why-study-section ul li i {
     color: var(--primary-blue);
     position: absolute;
-    /* --- MODIFIED: Adjusted left position to fit the new padding --- */
-    left: 15px; /* Positioned within the new padding */
-    top: 50%; /* Center vertically */
-    transform: translateY(-50%); /* Adjust for perfect vertical centering */
+    left: 0;
+    top: 5px;
     font-size: 1.2em;
-    flex-shrink: 0; /* Prevent icon from shrinking */
 }
 
 /* Quick Links / Feature Cards */
@@ -492,58 +436,30 @@ img {
     background-color: #E6C229;
 }
 
-
-/* Daily Insight Section */
+/* Daily Insight Section - New Styles */
 .daily-insight-section {
     background-color: var(--light-blue-bg);
-    padding: 80px 0;
+    padding: 60px 0;
     text-align: center;
-    border-top: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
 }
 
-.daily-insight-section .insight-content {
-    background-color: var(--card-background);
-    max-width: 800px;
-    margin: 50px auto 0 auto;
+.insight-content {
+    background-color: var(--text-light);
     padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px var(--shadow-medium);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
+    border-radius: 12px;
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
 }
 
-.daily-insight-section .insight-content p {
+#daily-fact {
     font-family: 'Montserrat', sans-serif;
     font-size: 2em;
     font-style: italic;
-    color: var(--primary-blue);
     line-height: 1.4;
-    text-align: center;
-    margin: 0;
+    color: var(--primary-blue);
+    margin-bottom: 0;
 }
-
-.daily-insight-section .insight-content::before,
-.daily-insight-section .insight-content::after {
-    content: '"';
-    font-size: 3em;
-    color: rgba(0, 0, 0, 0.1);
-    position: absolute;
-    line-height: 0;
-}
-
-.daily-insight-section .insight-content::before {
-    top: 0.2em;
-    left: -0.5em;
-}
-
-.daily-insight-section .insight-content::after {
-    bottom: -0.2em;
-    right: -0.5em;
-}
-
 
 /* Footer */
 footer {
@@ -629,8 +545,7 @@ footer {
     .main-nav li a {
         font-size: 0.9em;
         padding: 5px 8px;
-        /* --- CRITICAL FIX: Removed white-space: nowrap; from here too --- */
-        /* white-space: nowrap; */
+        white-space: nowrap;
     }
 
     .hero-content h1 {
@@ -647,23 +562,17 @@ footer {
         font-size: 2em;
     }
     .why-study-section ul {
-        grid-template-columns: 1fr; /* Ensures single column on mobile */
-        /* Adjusted padding for smaller screens */
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-    .why-study-section ul li {
-        /* Adjusted padding for smaller screens to maintain icon spacing */
-        padding-left: 45px; /* Slightly less padding on mobile */
-    }
-    .why-study-section ul li i {
-        /* Adjusted left position for smaller screens to maintain icon spacing */
-        left: 10px;
+        grid-template-columns: 1fr;
     }
 
-    .testimonial-section blockquote {
+    .daily-insight-section .section-title {
+        font-size: 2em;
+    }
+    .insight-content {
+        padding: 30px;
+    }
+    #daily-fact {
         font-size: 1.5em;
-        padding: 0 20px;
     }
 
     .search-box {
@@ -672,6 +581,11 @@ footer {
     }
     .search-box input {
         font-size: 1em;
+    }
+
+    .search-box i {
+        font-size: 1em;
+        margin-right: 5px;
     }
 
     .cards-grid {
@@ -694,15 +608,6 @@ footer {
     .president-title {
         font-size: 0.8em;
     }
-
-    /* Daily Insight Section Responsive */
-    .daily-insight-section .insight-content {
-        padding: 30px;
-        gap: 20px;
-    }
-    .daily-insight-section .insight-content p {
-        font-size: 1.6em;
-    }
 }
 
 @media (max-width: 480px) {
@@ -718,17 +623,16 @@ footer {
     }
 
     .main-nav {
-        gap: 5px; /* Reduced gap for very small screens */
+        gap: 8px;
         justify-content: space-around;
         padding: 0 5px;
         height: auto;
         align-items: center;
     }
     .main-nav li a {
-        padding: 4px 4px; /* Reduced padding for very small screens */
-        font-size: 0.7em; /* Reduced font size for very small screens */
-        /* --- CRITICAL FIX: Removed white-space: nowrap; from here too --- */
-        /* white-space: nowrap; */
+        padding: 5px 5px;
+        font-size: 0.8em;
+        white-space: nowrap;
     }
 
     .search-box {
@@ -745,10 +649,8 @@ footer {
     }
 
     .cards-grid {
+        grid-template-columns: 1fr;
         gap: 15px;
-    }
-    .testimonial-section blockquote {
-        font-size: 1.2em;
     }
     .president-corner {
         bottom: 15px;
@@ -765,14 +667,5 @@ footer {
     }
     .president-title {
         font-size: 0.7em;
-    }
-
-    /* Daily Insight Section Responsive */
-    .daily-insight-section .insight-content {
-        padding: 20px;
-        gap: 10px;
-    }
-    .daily-insight-section .insight-content p {
-        font-size: 1.2em;
     }
 }
