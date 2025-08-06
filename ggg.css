@@ -27,6 +27,7 @@ body {
     background-color: var(--grey-background);
     -webkit-font-smoothing: antialiased; /* Smoother font rendering */
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden; /* Prevent horizontal scroll bar from appearing */
 }
 
 .container {
@@ -62,13 +63,12 @@ img {
     background-color: var(--primary-blue);
     color: var(--text-light);
     padding: 20px 0 0;
-    min-height: 400px;
+    min-height: 450px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     text-align: center;
-    /* NEW: nams.jpg as fixed background for hero */
     background-image: url('./pics/nams.jpg'); /* Ensure nams.jpg is in your pics folder */
     background-size: cover;
     background-position: center;
@@ -112,11 +112,17 @@ img {
     padding-top: 50px;
     padding-bottom: 50px;
     z-index: 5; /* Ensure text is above overlay */
+    max-width: 900px; /* Constrain content width */
+    margin: 0 auto; /* Center the content horizontally */
+    width: 100%; /* Ensure it takes full available width up to max-width */
+    box-sizing: border-box; /* Include padding in width calculation */
+    padding-left: 20px; /* Add horizontal padding for responsiveness */
+    padding-right: 20px; /* Add horizontal padding for responsiveness */
 }
 
 .hero-content h1 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 3.5em;
+    font-size: 3.5em; /* Base size */
     margin-bottom: 10px;
     line-height: 1.1;
     text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
@@ -124,14 +130,14 @@ img {
 
 .hero-content h2 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 2em;
+    font-size: 2em; /* Base size */
     margin-bottom: 15px;
     font-weight: 400;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
 .hero-content p {
-    font-size: 1.2em;
+    font-size: 1.2em; /* Base size */
     margin-bottom: 30px;
     opacity: 0.9;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
@@ -189,7 +195,7 @@ img {
     padding: 8px 0;
     transition: all 0.3s ease;
     text-transform: uppercase;
-    white-space: nowrap;
+    /* Removed white-space: nowrap; to allow wrapping */
     font-size: 1.05em;
     position: relative;
 }
@@ -358,47 +364,52 @@ img {
 /* Why Study Section */
 .why-study-section {
     background-color: var(--grey-background);
-    padding: 80px 0; /* Consistent padding */
+    padding: 60px 0;
     text-align: left;
 }
 
 .why-study-section h2 {
-    /* Now uses .section-title */
-    margin-bottom: 50px; /* Adjusted to match .section-title margin */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5em;
+    color: var(--primary-blue);
+    margin-bottom: 40px;
+    text-align: center;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.why-study-section h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 100px;
+    height: 4px;
+    background-color: var(--accent-yellow);
+    border-radius: 2px;
 }
 
 .why-study-section ul {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-    gap: 20px; /* Slightly more gap */
-    padding-left: 20px; /* Remove default ul padding */
-    justify-content: center; /* Center items if they don't fill the row */
+    gap: 20px;
+    padding-left: 20px;
 }
 
 .why-study-section ul li {
     font-size: 1.1em;
-    margin-bottom: 0; /* Remove individual li margin */
+    margin-bottom: 15px;
     position: relative;
-    /* --- MODIFIED: Increased padding-left for icon space --- */
-    padding-left: 50px; /* Increased from 35px to 50px */
-    /* background-color: var(--card-background); Add background to list items */
-    padding: 15px 20px;
-    /* border-radius: 8px; */
-    box-shadow: 0 2px 8px var(--shadow-light);
-    /* border: 1px solid var(--border-color); */
-    display: flex; /* Align icon and text */
-    align-items: center;
+    padding-left: 30px;
 }
 
 .why-study-section ul li i {
     color: var(--primary-blue);
     position: absolute;
-    /* --- MODIFIED: Adjusted left position for icon --- */
-    left: 0px; /* Adjusted from 15px to 18px */
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 1.2em; /* Slightly larger icon */
-    flex-shrink: 0;
+    left: 0;
+    top: 5px;
+    font-size: 1.2em;
 }
 
 /* Quick Links / Feature Cards */
@@ -469,9 +480,9 @@ img {
 }
 
 
-/* NEW: Daily Insight Section (Moved to Home Page) */
+/* Daily Insight Section */
 .daily-insight-section {
-    background-color: var(--light-blue-bg); /* Use a lighter background for fun */
+    background-color: var(--light-blue-bg);
     padding: 80px 0;
     text-align: center;
     border-top: 1px solid var(--border-color);
@@ -479,16 +490,16 @@ img {
 }
 
 .daily-insight-section .insight-content {
-    background-color: var(--card-background); /* White card for the insight */
+    background-color: var(--card-background);
     max-width: 800px;
-    margin: 50px auto 0 auto; /* Space below title */
+    margin: 50px auto 0 auto;
     padding: 40px;
-    border-radius: 15px; /* More rounded for a softer feel */
-    box-shadow: 0 10px 30px var(--shadow-medium); /* Prominent shadow */
+    border-radius: 15px;
+    box-shadow: 0 10px 30px var(--shadow-medium);
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 30px; /* Space between elements */
+    gap: 30px;
 }
 
 .daily-insight-section .insight-content p {
@@ -498,7 +509,7 @@ img {
     color: var(--primary-blue);
     line-height: 1.4;
     text-align: center;
-    margin: 0; /* Override default p margin */
+    margin: 0;
 }
 
 .daily-insight-section .insight-content::before,
@@ -525,43 +536,43 @@ img {
 footer {
     background-color: var(--secondary-blue);
     color: var(--text-light);
-    padding: 30px 0; /* Consistent padding */
+    padding: 30px 0;
     text-align: center;
-    font-size: 0.95em; /* Consistent font size */
-    box-shadow: 0 -2px 10px var(--shadow-medium); /* Consistent shadow */
+    font-size: 0.95em;
+    box-shadow: 0 -2px 10px var(--shadow-medium);
 }
 
 /* Styles for the President's Corner element */
 .president-corner {
     position: fixed;
-    bottom: 30px; /* Consistent with other pages */
-    right: 30px; /* Consistent with other pages */
-    background-color: rgba(10, 38, 71, 0.98); /* Consistent with other pages */
+    bottom: 30px;
+    right: 30px;
+    background-color: rgba(10, 38, 71, 0.98);
     color: var(--text-light);
-    padding: 15px 20px; /* Consistent with other pages */
-    border-radius: 15px; /* Consistent with other pages */
+    padding: 15px 20px;
+    border-radius: 15px;
     display: flex;
     align-items: center;
-    gap: 15px; /* Consistent with other pages */
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35); /* Consistent with other pages */
+    gap: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
     z-index: 1000;
     opacity: 1;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.1); /* Consistent with other pages */
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .president-corner:hover {
     opacity: 1;
-    transform: translateY(-5px); /* Consistent with other pages */
+    transform: translateY(-5px);
     box-shadow: 0 12px 30px var(--shadow-strong);
 }
 
 .president-corner img {
-    width: 70px; /* Consistent with other pages */
+    width: 70px;
     height: 70px;
     border-radius: 50%;
     object-fit: cover;
-    border: 4px solid var(--accent-yellow); /* Consistent with other pages */
+    border: 4px solid var(--accent-yellow);
     box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
 }
 
@@ -569,12 +580,12 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    line-height: 1.3; /* Consistent with other pages */
+    line-height: 1.3;
 }
 
 .president-name {
     margin: 0;
-    font-size: 1.3em; /* Consistent with other pages */
+    font-size: 1.3em;
     font-weight: 700;
     font-family: 'Montserrat', sans-serif;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
@@ -582,7 +593,7 @@ footer {
 
 .president-title {
     margin: 0;
-    font-size: 1em; /* Consistent with other pages */
+    font-size: 1em;
     font-weight: 400;
     color: rgba(255, 255, 255, 0.9);
     font-family: 'Open Sans', sans-serif;
@@ -592,10 +603,10 @@ footer {
 @media (max-width: 992px) {
     /* Header & Hero */
     .hero-content h1 {
-        font-size: 2.8em;
+        font-size: 2.5em; /* Reduced for tablets */
     }
     .hero-content h2 {
-        font-size: 1.8em;
+        font-size: 1.6em; /* Reduced for tablets */
     }
     .hero-content p {
         font-size: 1em;
@@ -625,18 +636,18 @@ footer {
         font-size: 2.2em;
     }
     .why-study-section ul {
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Adjust for smaller screens */
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Adjusted minmax for better fit on tablets */
         gap: 20px;
+        padding-left: 15px; /* Adjusted padding for smaller screens */
+        padding-right: 15px; /* Adjusted padding for smaller screens */
     }
     .why-study-section ul li {
         font-size: 1em;
-        /* --- MODIFIED: Adjusted padding for smaller screens --- */
-        padding: 12px 15px 12px 40px; /* Adjusted from 12px 15px 12px 30px */
+        padding: 12px 15px 12px 40px; /* Adjusted padding for smaller screens */
     }
     .why-study-section ul li i {
         font-size: 1.2em;
-        /* --- MODIFIED: Adjusted left position for smaller screens --- */
-        left: 12px; /* Adjusted from 10px */
+        left: 10px; /* Adjusted left position for smaller screens */
     }
     /* Quick Links */
     .cards-grid {
@@ -683,13 +694,13 @@ footer {
 @media (max-width: 768px) {
     /* Hero */
     .hero-section {
-        min-height: 400px;
+        min-height: 350px; /* Further reduced for smaller tablets */
     }
     .hero-content h1 {
-        font-size: 2.2em;
+        font-size: 2em; /* Further reduced */
     }
     .hero-content h2 {
-        font-size: 1.5em;
+        font-size: 1.4em; /* Further reduced */
     }
     .hero-content p {
         font-size: 0.9em;
@@ -708,18 +719,18 @@ footer {
         font-size: 2em;
     }
     .why-study-section ul {
-        grid-template-columns: 1fr; /* Single column on smaller tablets */
+        grid-template-columns: 1fr; /* Ensures single column on mobile */
         gap: 15px;
+        padding-left: 10px; /* Adjusted padding for mobile */
+        padding-right: 10px; /* Adjusted padding for mobile */
     }
     .why-study-section ul li {
         font-size: 0.95em;
-        /* --- MODIFIED: Adjusted padding for smaller screens --- */
-        padding: 10px 15px 10px 35px; /* Adjusted from 10px 15px 10px 30px */
+        padding: 10px 15px 10px 35px; /* Adjusted padding for mobile */
     }
     .why-study-section ul li i {
         font-size: 1.1em;
-        /* --- MODIFIED: Adjusted left position for smaller screens --- */
-        left: 10px; /* Adjusted from 10px */
+        left: 8px; /* Adjusted left position for mobile */
     }
     /* Quick Links */
     .cards-grid {
@@ -762,7 +773,7 @@ footer {
 @media (max-width: 480px) {
     /* Hero */
     .hero-section {
-        min-height: 350px;
+        min-height: 300px; /* Further reduced for mobile */
     }
     .hero-content h1 {
         font-size: 1.8em;
@@ -812,13 +823,11 @@ footer {
     }
     .why-study-section ul li {
         font-size: 0.9em;
-        /* --- MODIFIED: Adjusted padding for smaller screens --- */
-        padding: 8px 12px 8px 30px; /* Adjusted from 8px 12px 8px 25px */
+        padding: 8px 12px 8px 30px; /* Adjusted padding for very small screens */
     }
     .why-study-section ul li i {
         font-size: 1em;
-        /* --- MODIFIED: Adjusted left position for smaller screens --- */
-        left: 8px; /* Adjusted from 8px */
+        left: 5px; /* Adjusted left position for very small screens */
     }
     /* Quick Links */
     .cards-grid {
