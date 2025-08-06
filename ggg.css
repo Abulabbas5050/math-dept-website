@@ -178,8 +178,7 @@ img {
 .main-nav {
     display: flex;
     justify-content: center;
-    /* --- MODIFIED: Reduced gap for better wrapping on smaller screens --- */
-    gap: 20px; /* Reduced from 35px */
+    gap: 35px; /* Consistent gap */
     flex-wrap: wrap;
     width: 100%;
     max-width: 1200px;
@@ -193,11 +192,11 @@ img {
 .main-nav li a {
     color: var(--text-light);
     font-weight: 600;
-    /* --- MODIFIED: Reduced padding for more compact links --- */
-    padding: 6px 10px; /* Reduced from 8px 0 */
+    padding: 8px 0;
     transition: all 0.3s ease;
     text-transform: uppercase;
-    /* Removed white-space: nowrap; to allow wrapping */
+    /* --- CRITICAL FIX: Removed white-space: nowrap; to allow text wrapping --- */
+    /* white-space: nowrap; */
     font-size: 1.05em;
     position: relative;
 }
@@ -394,10 +393,9 @@ img {
 
 .why-study-section ul {
     display: grid;
-    /* --- MODIFIED: Reverted to previous grid-template-columns for desktop --- */
+    /* --- REVERTED: Back to the original multi-column grid for desktop --- */
     grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
     gap: 20px;
-    /* --- MODIFIED: Adjusted padding-left to align with the container and prevent overflow --- */
     padding-left: 20px; /* Base padding */
     padding-right: 20px; /* Added padding-right for symmetry */
     max-width: 1200px; /* Ensure it doesn't stretch too wide */
@@ -408,7 +406,7 @@ img {
     font-size: 1.1em;
     margin-bottom: 15px;
     position: relative;
-    /* --- MODIFIED: Increased padding-left for icon space --- */
+    /* --- REVERTED & ADJUSTED: Padding for icon space --- */
     padding-left: 50px; /* Increased from 30px to give more space for the icon */
     background-color: var(--card-background); /* Added background for visual separation */
     padding-top: 15px; /* Added padding for visual separation */
@@ -418,12 +416,13 @@ img {
     border: 1px solid var(--border-color); /* Added border for visual separation */
     display: flex; /* Use flexbox to align icon and text */
     align-items: center; /* Vertically center icon and text */
+    /* Removed max-width and margin auto here as grid handles it */
 }
 
 .why-study-section ul li i {
     color: var(--primary-blue);
     position: absolute;
-    /* --- MODIFIED: Adjusted left position to fit the new padding --- */
+    /* --- REVERTED & ADJUSTED: Left position to fit the new padding --- */
     left: 15px; /* Adjusted from 0 to 15px to be inside the padding */
     top: 50%; /* Center vertically */
     transform: translateY(-50%); /* Adjust for vertical centering */
@@ -733,10 +732,24 @@ footer {
         font-size: 0.85em;
         padding: 5px 6px;
     }
-    /* Why Study */
-    .why-study-section h2 {
-        font-size: 2em;
+    /* President Corner */
+    .president-corner {
+        bottom: 15px;
+        right: 15px;
+        padding: 10px 15px;
+        gap: 10px;
     }
+    .president-corner img {
+        width: 50px;
+        height: 50px;
+    }
+    .president-name {
+        font-size: 1.1em;
+    }
+    .president-title {
+        font-size: 0.8em;
+    }
+    /* Why Study Section (ensure consistency) */
     .why-study-section ul {
         grid-template-columns: 1fr; /* Ensures single column on mobile */
         gap: 15px;
@@ -770,23 +783,6 @@ footer {
     .daily-insight-section .insight-content p {
         font-size: 1.4em;
     }
-    /* President Corner */
-    .president-corner {
-        bottom: 15px;
-        right: 15px;
-        padding: 10px 15px;
-        gap: 10px;
-    }
-    .president-corner img {
-        width: 50px;
-        height: 50px;
-    }
-    .president-name {
-        font-size: 1.1em;
-    }
-    .president-title {
-        font-size: 0.8em;
-    }
 }
 
 @media (max-width: 480px) {
@@ -813,8 +809,9 @@ footer {
         padding: 0;
     }
     .main-nav li a {
-        font-size: 0.75em;
-        padding: 4px 4px;
+        /* --- MODIFIED: More aggressive shrinking for mobile nav links --- */
+        font-size: 0.7em; /* Even smaller font size */
+        padding: 2px 3px; /* Even smaller padding */
     }
     /* Search */
     .search-box {
